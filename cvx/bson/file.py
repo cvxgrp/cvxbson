@@ -38,13 +38,9 @@ def write_bson(file: Path, data):
     """
 
     def _encode_tensor(tensor: pa.lib.Tensor):
-        try:
-            sink = pa.BufferOutputStream()
-            pa.ipc.write_tensor(tensor, sink)
-            return sink.getvalue().to_pybytes()
-        except Exception as e:
-            print("Error encoding tensor:", str(e))
-            return None
+        sink = pa.BufferOutputStream()
+        pa.ipc.write_tensor(tensor, sink)
+        return sink.getvalue().to_pybytes()
 
     content = bson.dumps(
         {
