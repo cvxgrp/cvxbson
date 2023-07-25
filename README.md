@@ -1,11 +1,11 @@
 # [cvxjson](https://www.cvxgrp.org/cvxjson/)
 
 [![PyPI version](https://badge.fury.io/py/cvxjson.svg)](https://badge.fury.io/py/cvxjson)
-[![Apache 2.0 
+[![Apache 2.0
 License](https://img.shields.io/badge/License-APACHEv2-brightgreen.svg)](https://github.com/cvxgrp/cvxjson/blob/master/LICENSE)
-[![PyPI download 
+[![PyPI download
 month](https://img.shields.io/pypi/dm/cvxjson.svg)](https://pypi.python.org/pypi/cvxjson/)
-[![Coverage 
+[![Coverage
 Status](https://coveralls.io/repos/github/cvxgrp/cvxjson/badge.png?branch=main)](https://coveralls.io/github/cvxgrp/cvxjson?branch=main)
 
 ## Poetry

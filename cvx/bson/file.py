@@ -8,9 +8,10 @@ import io
 from pathlib import Path
 
 import numpy as np
-import simple_bson as bson
 import pyarrow as pa
 import pyarrow.parquet as pq
+import simple_bson as bson
+
 
 def read_bson(file: Path):
     """
@@ -32,7 +33,6 @@ def read_bson(file: Path):
         for name, value in data.items():
             xxx = np.array([row for row in pq.read_table(io.BytesIO(value))])
             yield name, xxx
-
 
 
 def write_bson(file: Path, dic, compression="zstd"):
@@ -59,10 +59,8 @@ def write_bson(file: Path, dic, compression="zstd"):
 
         with io.BytesIO() as buffer:
             if isinstance(matrix, np.ndarray):
-
                 arrays = [
-                    pa.array(col)  # Create one arrow array per row
-                    for col in matrix
+                    pa.array(col) for col in matrix  # Create one arrow array per row
                 ]
 
                 table = pa.Table.from_arrays(
