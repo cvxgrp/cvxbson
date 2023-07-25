@@ -22,3 +22,13 @@ def test_wrong_type(tmp_path):
     dic = {"B": 3}
     with pytest.raises(TypeError):
         write_bson(tmp_path / "maffay.bson", dic)
+
+
+def test_vector(tmp_path):
+    dic = {"a": np.array([1, 2, 3])}
+    write_bson(tmp_path / "maffay.bson", dic)
+
+    x = dict(read_bson(tmp_path / "maffay.bson"))
+
+    assert set(x.keys()) == {"a"}
+    np.allclose(x["a"], dic["a"])
