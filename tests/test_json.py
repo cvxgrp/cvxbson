@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 
-from cvx.io.json import read_json, write_json
+from cvx.json.file import read_json, write_json
 
 
 def test_read_and_write_json(tmp_path):
