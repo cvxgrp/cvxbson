@@ -8,9 +8,6 @@ month](https://img.shields.io/pypi/dm/cvxjson.svg)](https://pypi.python.org/pypi
 [![Coverage 
 Status](https://coveralls.io/repos/github/cvxgrp/cvxjson/badge.png?branch=main)](https://coveralls.io/github/cvxgrp/cvxjson?branch=main)
 
-[![Open in GitHub 
-Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/cvxgrp/cvxjson)
-
 ## Poetry
 
 We assume you share already the love for [Poetry](https://python-poetry.org).
