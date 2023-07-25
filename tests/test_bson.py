@@ -22,3 +22,9 @@ def test_write(random_matrix, tmp_path):
 
     assert set(x.keys()) == {"B"}
     np.allclose(x["B"], random_matrix)
+
+
+def test_wrong_type(tmp_path):
+    dic = {"B": 3}
+    with pytest.raises(TypeError):
+        write_bson(tmp_path / "maffay.bson", dic)

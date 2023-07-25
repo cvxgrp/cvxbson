@@ -12,7 +12,6 @@ python = ">=3.8,<4.0"
 numpy = "*"
 requests = "*"
 numpyencoder = "*"
-python-snappy = ">=0.6.1"
 pyarrow = "*"
 simple-bson = "*"
 

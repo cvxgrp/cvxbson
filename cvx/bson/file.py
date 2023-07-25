@@ -69,7 +69,7 @@ def write_bson(file: Path, data, compression="zstd"):
                 pq.write_table(table, buffer, compression=compression)
 
             else:
-                raise ValueError("Bson only supports numpy arrays")
+                raise TypeError("Bson only supports numpy arrays")
 
             return buffer.getvalue()
 
