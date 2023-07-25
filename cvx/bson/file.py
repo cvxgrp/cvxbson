@@ -28,7 +28,7 @@ def read_bson(file: Path):
             yield name, pa.ipc.read_tensor(value).to_numpy()
 
 
-def write_bson(file: Path, data, compression="zstd"):
+def write_bson(file: Path, data):
     """
     Write dictionary into bson file
 
@@ -37,10 +37,14 @@ def write_bson(file: Path, data, compression="zstd"):
         dictionary of numpy arrays
     """
 
-    def _encode_tensor(tensor):
-        sink = pa.BufferOutputStream()
-        pa.ipc.write_tensor(tensor, sink)
-        return sink.getvalue().to_pybytes()
+    def _encode_tensor(tensor: pa.lib.Tensor):
+        try:
+            sink = pa.BufferOutputStream()
+            pa.ipc.write_tensor(tensor, sink)
+            return sink.getvalue().to_pybytes()
+        except Exception as e:
+            print("Error encoding tensor:", str(e))
+            return None
 
     content = bson.dumps(
         {
