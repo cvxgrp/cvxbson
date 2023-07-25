@@ -29,7 +29,7 @@ def read_bson(file: Path):
         data = bson.loads(bson_document)
 
         for name, value in data.items():
-            yield name, pd.read_feather(io.BytesIO(value))
+            yield name, pd.read_parquet(io.BytesIO(value))
 
 
 def write_bson(file: Path, dic, compression="zstd"):
@@ -55,7 +55,7 @@ def write_bson(file: Path, dic, compression="zstd"):
         """
 
         with io.BytesIO() as buffer:
-            frame.to_feather(buffer, compression=compression)
+            frame.to_parquet(buffer, compression=compression)
             return buffer.getvalue()
 
     content = bson.dumps({name: to_binary(value) for name, value in dic.items()})

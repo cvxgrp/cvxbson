@@ -18,6 +18,7 @@ def test_prices(bson_file, prices):
         bson_file.data["A"], prices
     )
 
+
 def test_name(bson_file):
     assert bson_file.name == "maffay"
 

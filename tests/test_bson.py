@@ -17,3 +17,4 @@ def test_write(prices, tmp_path):
     assert set(x.keys()) == {"A", "B"}
     pd.testing.assert_frame_equal(x["A"], prices)
     pd.testing.assert_frame_equal(x["B"], prices)
+
