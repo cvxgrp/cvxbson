@@ -18,3 +18,4 @@ def test_write(prices, tmp_path):
     pd.testing.assert_frame_equal(x["A"], prices)
     pd.testing.assert_frame_equal(x["B"], prices)
 
+    # write_bson("maffay.bson", dic)

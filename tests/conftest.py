@@ -14,4 +14,4 @@ def resource_fixture():
 
 @pytest.fixture()
 def prices(resource_dir):
-    return pd.read_csv(resource_dir / "stock_prices.csv", header=0, parse_dates=True)
+    return pd.read_csv(resource_dir / "stock_prices.csv", index_col=0, header=0, parse_dates=True)
