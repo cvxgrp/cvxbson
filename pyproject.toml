@@ -15,7 +15,6 @@ numpyencoder = "*"
 python-snappy = ">=0.6.1"
 pyarrow = "*"
 simple-bson = "*"
-pandas = "*"
 
 [tool.poetry.group.test.dependencies]
 pytest = "7.2.0"

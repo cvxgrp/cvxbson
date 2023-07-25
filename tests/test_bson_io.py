@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
+import numpy as np
 import pytest
-import pandas as pd
 
 from cvx.bson.file import build_bson
 
@@ -14,8 +14,8 @@ def bson_file(resource_dir):
 
 
 def test_prices(bson_file, prices):
-    pd.testing.assert_frame_equal(
-        bson_file.data["A"], prices
+    assert np.allclose(
+        bson_file.data["B"], prices
     )
 
 

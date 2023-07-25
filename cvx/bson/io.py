@@ -7,9 +7,10 @@ from __future__ import annotations
 import io
 from pathlib import Path
 
-import pandas as pd
+import numpy as np
 import simple_bson as bson
-
+import pyarrow as pa
+import pyarrow.parquet as pq
 
 def read_bson(file: Path):
     """
@@ -29,7 +30,9 @@ def read_bson(file: Path):
         data = bson.loads(bson_document)
 
         for name, value in data.items():
-            yield name, pd.read_parquet(io.BytesIO(value))
+            xxx = np.array([row for row in pq.read_table(io.BytesIO(value))])
+            yield name, xxx
+
 
 
 def write_bson(file: Path, dic, compression="zstd"):
@@ -43,19 +46,36 @@ def write_bson(file: Path, dic, compression="zstd"):
 
     """
 
-    def to_binary(frame):
+    def to_binary(matrix: np.ndarray):
         """
-        ipc byte-stream of a frame
+        byte-stream of a frame
 
         Args:
-            frame: the frame converted to ipc
+            matrix: the frame converted to ipc
 
         Returns:
             the bytestream
         """
 
         with io.BytesIO() as buffer:
-            frame.to_parquet(buffer, compression=compression)
+            if isinstance(matrix, np.ndarray):
+
+                arrays = [
+                    pa.array(col)  # Create one arrow array per row
+                    for col in matrix
+                ]
+
+                table = pa.Table.from_arrays(
+                    arrays,
+                    names=[str(i) for i in range(np.shape(arrays)[0])]
+                    # give name to each row
+                )
+
+                pq.write_table(table, buffer, compression=compression)
+
+            else:
+                raise ValueError("Bson only supports numpy arrays")
+
             return buffer.getvalue()
 
     content = bson.dumps({name: to_binary(value) for name, value in dic.items()})
