@@ -7,7 +7,7 @@ import pytest
 from cvx.bson import read_bson, write_bson
 
 
-@pytest.mark.parametrize("shape", [(50, 50), (1000, 50), (50, 1000), (1000,1000)])
+@pytest.mark.parametrize("shape", [(50, 50), (1000, 50), (50, 1000), (1000, 1000)])
 def test_write(tmp_path, shape):
     data = {"a": np.random.rand(*shape)}
     write_bson(tmp_path / "maffay.bson", data)
