@@ -12,7 +12,7 @@ def test_write(prices, tmp_path):
     write_bson(tmp_path / "maffay.bson", dic)
     assert (tmp_path / "maffay.bson").exists()
 
-    x = read_bson(tmp_path / "maffay.bson")
+    x = dict(read_bson(tmp_path / "maffay.bson"))
 
     assert set(x.keys()) == {"A", "B"}
     pd.testing.assert_frame_equal(x["A"], prices)

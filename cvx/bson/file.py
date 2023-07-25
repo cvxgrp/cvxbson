@@ -21,7 +21,7 @@ def build_bson(file):
     Returns:
         _BsonFile object.
     """
-    return _BsonFile(file, read_bson(file))
+    return _BsonFile(file, dict(read_bson(file)))
 
 
 @dataclass(frozen=True)

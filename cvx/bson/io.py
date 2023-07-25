@@ -28,9 +28,8 @@ def read_bson(file: Path):
         bson_document = openfile.read()
         data = bson.loads(bson_document)
 
-        return {
-            name: pd.read_feather(io.BytesIO(value)) for name, value in data.items()
-        }
+        for name, value in data.items():
+            yield name, pd.read_feather(io.BytesIO(value))
 
 
 def write_bson(file: Path, dic, compression="zstd"):
