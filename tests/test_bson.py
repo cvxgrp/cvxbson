@@ -4,24 +4,18 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from cvx.bson.file import read_bson, write_bson
+from cvx.bson import read_bson, write_bson
 
 
-@pytest.fixture()
-def random_matrix():
-    np.random.seed(2)
-    return np.random.rand(5, 3)
-
-
-def test_write(random_matrix, tmp_path):
-    dic = {"B": random_matrix}
-    write_bson(tmp_path / "maffay.bson", dic)
-    assert (tmp_path / "maffay.bson").exists()
+@pytest.mark.parametrize("shape", [(50, 50), (1000, 50), (50, 1000), (1000,1000)])
+def test_write(tmp_path, shape):
+    data = {"a": np.random.rand(*shape)}
+    write_bson(tmp_path / "maffay.bson", data)
 
     x = dict(read_bson(tmp_path / "maffay.bson"))
 
-    assert set(x.keys()) == {"B"}
-    np.allclose(x["B"], random_matrix)
+    assert set(x.keys()) == {"a"}
+    np.allclose(x["a"], data["a"])
 
 
 def test_wrong_type(tmp_path):
