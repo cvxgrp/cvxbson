@@ -23,19 +23,16 @@ def read_bson(file: Path):
     Returns:
         a bson-document
     """
-    assert file.exists()
-
     with open(file, mode="rb") as openfile:
         # Reading from bson file
         bson_document = openfile.read()
         data = bson.loads(bson_document)
 
         for name, value in data.items():
-            xxx = np.array([row for row in pq.read_table(io.BytesIO(value))])
-            yield name, xxx
+            yield name, np.array([row for row in pq.read_table(io.BytesIO(value))])
 
 
-def write_bson(file: Path, dic, compression="zstd"):
+def write_bson(file: Path, data, compression="zstd"):
     """
     Write dictionary into bson file
 
@@ -76,7 +73,7 @@ def write_bson(file: Path, dic, compression="zstd"):
 
             return buffer.getvalue()
 
-    content = bson.dumps({name: to_binary(value) for name, value in dic.items()})
+    content = bson.dumps({name: to_binary(value) for name, value in data.items()})
 
     with open(file=file, mode="wb") as bson_file:
         bson_file.write(content)
