@@ -32,6 +32,10 @@ black = "23.3.0"
 
 [tool.poetry.group.dev.dependencies]
 loguru = "*"
+fire = "*"
+
+[tool.poetry.scripts]
+weather-fire = "cvx.cli.weather_fire:main"
 
 [build-system]
 requires = ["poetry-core"]
