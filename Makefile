@@ -54,4 +54,4 @@ help:  ## Display this help screen
 
 .PHONY: jupyter
 jupyter: ## Run jupyter lab
-	@poetry .venv/bin/jupyter lab
+	@.venv/bin/jupyter lab
