@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: cvxjson
+title: cvxbson
 author: Thomas Schmelzer
 only_build_toc_files: true
 
@@ -15,7 +15,7 @@ parse:
     - linkify
     - dollarmath
   myst_substitutions:
-    book_url: https://www.cvxgrp.org/cvxjson
+    book_url: https://www.cvxgrp.org/cvxbson
 
 # needed for plotly
 sphinx:
@@ -25,7 +25,7 @@ sphinx:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/cvxgrp/cvxjson
+  url: https://github.com/cvxgrp/cvxbson
   path_to_book: book
   branch: main
 

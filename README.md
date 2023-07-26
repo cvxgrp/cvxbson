@@ -1,12 +1,12 @@
-# [cvxjson](https://www.cvxgrp.org/cvxjson/)
+# [cvxbson](https://www.cvxgrp.org/cvxbson/)
 
-[![PyPI version](https://badge.fury.io/py/cvxjson.svg)](https://badge.fury.io/py/cvxjson)
+[![PyPI version](https://badge.fury.io/py/cvxbson.svg)](https://badge.fury.io/py/cvxbson)
 [![Apache 2.0
-License](https://img.shields.io/badge/License-APACHEv2-brightgreen.svg)](https://github.com/cvxgrp/cvxjson/blob/master/LICENSE)
+License](https://img.shields.io/badge/License-APACHEv2-brightgreen.svg)](https://github.com/cvxgrp/cvxbson/blob/master/LICENSE)
 [![PyPI download
-month](https://img.shields.io/pypi/dm/cvxjson.svg)](https://pypi.python.org/pypi/cvxjson/)
+month](https://img.shields.io/pypi/dm/cvxbson.svg)](https://pypi.python.org/pypi/cvxbson/)
 [![Coverage
-Status](https://coveralls.io/repos/github/cvxgrp/cvxjson/badge.png?branch=main)](https://coveralls.io/github/cvxgrp/cvxjson?branch=main)
+Status](https://coveralls.io/repos/github/cvxgrp/cvxbson/badge.png?branch=main)](https://coveralls.io/github/cvxgrp/cvxbson?branch=main)
 
 ## Poetry
 
