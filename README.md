@@ -10,16 +10,16 @@ Status](https://coveralls.io/repos/github/cvxgrp/cvxbson/badge.png?branch=main)]
 
 ## IPC
 
-IPC stands for InterProcess Communication. It is a mechanism that allows to share 
+IPC stands for InterProcess Communication. It is a mechanism that allows to share
 data between processes. A traditional way to do so is to use json files.
 Json files are rather flexible and can be used to share data between different
-programming languages. However, they are not very efficient. 
+programming languages. However, they are not very efficient.
 
 Here we use their binary counterpart, bson files. Bson files are much more efficient
 but somewhat lack the flexibility of json files. Here we rely on the [bson](https://pypi.org/project/bson/)
-package to read and write bson files. We are interested in parsing dictionaries 
+package to read and write bson files. We are interested in parsing dictionaries
 of numpy arrays as fast as possible. Our current implementation is converting
-numpy arrays to pyarrow tensors and then to bson. 
+numpy arrays to pyarrow tensors and then to bson.
 
 There might be faster ways to achieve this goal and we are open to suggestions
 and pull requests.
@@ -43,7 +43,7 @@ assert np.allclose(data["B"], recovered["B"])
 We have also implemented the same functionality in for json files but would advise
 against using it. It is much slower and less efficient.
 
-You may want to avoid the path via files. It is possible to work directly 
+You may want to avoid the path via files. It is possible to work directly
 with bson strings. We provide methods for that, too.
 
 ## Poetry
