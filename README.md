@@ -39,8 +39,12 @@ recovered = dict(read_bson("test.bson"))
 assert np.allclose(data["A"], recovered["A"])
 assert np.allclose(data["B"], recovered["B"])
 ```
+
 We have also implemented the same functionality in for json files but would advise
 against using it. It is much slower and less efficient.
+
+You may want to avoid the path via files. It is possible to work directly 
+with bson strings. We provide methods for that, too.
 
 ## Poetry
 
