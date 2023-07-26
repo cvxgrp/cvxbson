@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Tools to support working with bson files
+Tools to support working with bson files and strings
 """
 from __future__ import annotations
 

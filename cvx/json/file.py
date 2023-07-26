@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+Tools to support working with json files
+"""
 import json
 from collections.abc import Iterable
 
