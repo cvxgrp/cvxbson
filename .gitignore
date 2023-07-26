@@ -7,9 +7,6 @@ __pycache__/
 .pytest_cache
 .ruff_cache
 
-test.json
-test.bson
-
 # C extensions
 *.so
 
