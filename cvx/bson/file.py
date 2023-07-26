@@ -4,9 +4,11 @@ Tools to support working with bson files
 """
 from __future__ import annotations
 
-from pathlib import Path
+from typing import Dict, PathLike
 
+import numpy as np
 import pyarrow as pa
+
 import bson
 
 
@@ -26,7 +28,10 @@ def read_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int):
         return from_bson(bson_str=openfile.read())
 
 
-def write_bson(file:  str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, np.ndarray]):
+def write_bson(
+    file: str | bytes | PathLike[str] | PathLike[bytes] | int,
+    data: Dict[str, np.ndarray],
+):
     """
     Write dictionary into a bson file
 
@@ -46,6 +51,7 @@ def to_bson(data: Dict[str, np.ndarray]):
     Args:
         data: dictionary of numpy arrays
     """
+
     def _encode_tensor(tensor: pa.lib.Tensor):
         buffer = pa.BufferOutputStream()
         pa.ipc.write_tensor(tensor, buffer)
@@ -58,8 +64,9 @@ def to_bson(data: Dict[str, np.ndarray]):
         }
     )
 
+
 def from_bson(bson_str):
-    """ Convert a bson string into a dictionary of numpy arrays """
+    """Convert a bson string into a dictionary of numpy arrays"""
     data = bson.loads(bson_str)
 
     for name, value in data.items():
