@@ -13,7 +13,9 @@ import pyarrow as pa
 import bson
 
 
-def read_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int):
+def read_bson(
+    file: str | bytes | PathLike[str] | PathLike[bytes] | int,
+) -> Dict[str, np.ndarray]:
     """
     Read a bson file and prepare the bson_document needed
 
@@ -21,7 +23,8 @@ def read_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int):
         file:
 
     Returns:
-        a generator of key-value pairs, where the value is a numpy array and key is its name
+        A dictionary of numpy arrays
+
 
     """
     with open(file, mode="rb") as openfile:
@@ -32,7 +35,7 @@ def read_bson(file: str | bytes | PathLike[str] | PathLike[bytes] | int):
 def write_bson(
     file: str | bytes | PathLike[str] | PathLike[bytes] | int,
     data: Dict[str, np.ndarray],
-):
+) -> int:
     """
     Write dictionary into a bson file
 
@@ -42,10 +45,10 @@ def write_bson(
     """
     bson_str = to_bson(data=data)
     with open(file=file, mode="wb") as bson_file:
-        bson_file.write(bson_str)
+        return bson_file.write(bson_str)
 
 
-def to_bson(data: Dict[str, np.ndarray]):
+def to_bson(data: Dict[str, np.ndarray]) -> bytes:
     """
     Convert a dictionary of numpy arrays into a bson string
 
@@ -66,9 +69,9 @@ def to_bson(data: Dict[str, np.ndarray]):
     )
 
 
-def from_bson(bson_str):
+def from_bson(bson_str: bytes) -> Dict[str, np.ndarray]:
     """Convert a bson string into a dictionary of numpy arrays"""
     data = bson.loads(bson_str)
 
-    for name, value in data.items():
-        yield name, pa.ipc.read_tensor(value).to_numpy()
+    # for name, value in data.items():
+    return {name: pa.ipc.read_tensor(value).to_numpy() for name, value in data.items()}

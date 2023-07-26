@@ -34,7 +34,7 @@ from cvx.bson import read_bson, write_bson
 data = {"A": np.random.rand(50,50), "B": np.random.rand(50)}
 
 write_bson("test.bson", data)
-recovered = dict(read_bson("test.bson"))
+recovered = read_bson("test.bson")
 
 assert np.allclose(data["A"], recovered["A"])
 assert np.allclose(data["B"], recovered["B"])
@@ -43,8 +43,8 @@ assert np.allclose(data["B"], recovered["B"])
 We have also implemented the same functionality in for json files but would advise
 against using it. It is much slower and less efficient.
 
-You may want to avoid the path via files. It is possible to work directly
-with bson strings. We provide methods for that, too.
+You may want to avoid the explicit construction of files.
+It is possible to work directly with bson strings. We provide methods for that, too.
 
 ## Poetry
 

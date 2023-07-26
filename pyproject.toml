@@ -35,7 +35,8 @@ loguru = "*"
 fire = "*"
 
 [tool.poetry.scripts]
-weather-fire = "cvx.cli.weather_fire:main"
+weather-fire = "cli.weather_fire:main"
+smallest-eigenvalue = "cli.smallest_eigenvalue:main"
 
 [build-system]
 requires = ["poetry-core"]
