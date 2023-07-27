@@ -5,7 +5,7 @@ Tools to support working with bson files and strings
 from __future__ import annotations
 
 from os import PathLike
-from typing import Any, Dict, Union
+from typing import Any, Dict, TypeAlias, Union
 
 import numpy.typing as npt
 import pyarrow as pa
@@ -13,7 +13,7 @@ import pyarrow as pa
 import bson
 
 FILE = Union[str, bytes, PathLike[str], PathLike[bytes], int]
-MATRIX = npt.NDArray[Any]
+MATRIX: TypeAlias = npt.NDArray[Any]
 MATRICES = Dict[str, MATRIX]
 
 
