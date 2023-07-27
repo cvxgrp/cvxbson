@@ -8,9 +8,9 @@ from os import PathLike
 from typing import Dict
 
 import numpy as np
-import pyarrow as pa
+import pyarrow as pa  # type: ignore
 
-import bson
+import bson  # type: ignore
 
 
 def read_bson(

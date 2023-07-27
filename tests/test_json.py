@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-import pytest
+import pytest  # type: ignore
 
 from cvx.json import read_json, write_json
 

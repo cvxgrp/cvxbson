@@ -6,7 +6,7 @@ import json
 from collections.abc import Iterable
 
 import numpy as np
-from numpyencoder import NumpyEncoder
+from numpyencoder import NumpyEncoder  # type: ignore
 
 
 def read_json(json_file):

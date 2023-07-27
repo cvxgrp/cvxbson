@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import fire
-import requests
+import fire  # type: ignore
+import requests  # type: ignore
 
 
 def cli(metric: str, latitude: float = 37.4419, longitude: float = -122.143) -> None:
