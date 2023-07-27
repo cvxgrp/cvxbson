@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import fire
+import fire  # type: ignore
 import numpy as np
 
 from cvx.bson import read_bson

@@ -5,7 +5,7 @@ Tools to support working with bson files and strings
 from __future__ import annotations
 
 from os import PathLike
-from typing import Dict
+from typing import Any, Dict
 
 import numpy as np
 import pyarrow as pa
@@ -15,7 +15,7 @@ import bson
 
 def read_bson(
     file: str | bytes | PathLike[str] | PathLike[bytes] | int,
-) -> Dict[str, np.ndarray]:
+) -> Dict[str, np.typing.NDArray[Any]]:
     """
     Read a bson file and prepare the bson_document needed
 
@@ -34,7 +34,7 @@ def read_bson(
 
 def write_bson(
     file: str | bytes | PathLike[str] | PathLike[bytes] | int,
-    data: Dict[str, np.ndarray],
+    data: Dict[str, np.typing.NDArray[Any]],
 ) -> int:
     """
     Write dictionary into a bson file
@@ -48,7 +48,7 @@ def write_bson(
         return bson_file.write(bson_str)
 
 
-def to_bson(data: Dict[str, np.ndarray]) -> bytes:
+def to_bson(data: Dict[str, np.typing.NDArray[Any]]) -> bytes:
     """
     Convert a dictionary of numpy arrays into a bson string
 
@@ -56,20 +56,22 @@ def to_bson(data: Dict[str, np.ndarray]) -> bytes:
         data: dictionary of numpy arrays
     """
 
-    def _encode_tensor(tensor: pa.lib.Tensor):
+    def _encode_tensor(tensor: pa.lib.Tensor) -> bytes:
         buffer = pa.BufferOutputStream()
         pa.ipc.write_tensor(tensor, buffer)
-        return buffer.getvalue().to_pybytes()
+        return bytes(buffer.getvalue().to_pybytes())
 
-    return bson.dumps(
-        {
-            name: _encode_tensor(pa.Tensor.from_numpy(obj=matrix))
-            for name, matrix in data.items()
-        }
+    return bytes(
+        bson.dumps(
+            {
+                name: _encode_tensor(pa.Tensor.from_numpy(obj=matrix))
+                for name, matrix in data.items()
+            }
+        )
     )
 
 
-def from_bson(bson_str: bytes) -> Dict[str, np.ndarray]:
+def from_bson(bson_str: bytes) -> Dict[str, np.typing.NDArray[Any]]:
     """Convert a bson string into a dictionary of numpy arrays"""
     data = bson.loads(bson_str)
 
