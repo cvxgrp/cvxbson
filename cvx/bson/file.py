@@ -5,10 +5,11 @@ Tools to support working with bson files and strings
 from __future__ import annotations
 
 from os import PathLike
-from typing import Any, Dict, TypeAlias, Union
+from typing import Any, Dict, Union
 
 import numpy.typing as npt
 import pyarrow as pa
+from typing_extensions import TypeAlias
 
 import bson
 

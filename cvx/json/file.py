@@ -5,11 +5,12 @@ Tools to support working with json files
 import json
 from collections.abc import Iterable
 from os import PathLike
-from typing import Any, Dict, TypeAlias, Union
+from typing import Any, Dict, Union
 
 import numpy as np
 import numpy.typing as npt
 from numpyencoder import NumpyEncoder
+from typing_extensions import TypeAlias
 
 FILE = Union[str, bytes, PathLike[str], PathLike[bytes], int]
 MATRIX: TypeAlias = npt.NDArray[Any]
