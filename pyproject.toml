@@ -37,7 +37,6 @@ fire = "*"
 [tool.poetry.group.stubs.dependencies]
 mypy = "*"
 
-
 [tool.poetry.scripts]
 weather-fire = "cli.weather_fire:main"
 smallest-eigenvalue = "cli.smallest_eigenvalue:main"
