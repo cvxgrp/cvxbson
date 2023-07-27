@@ -79,4 +79,5 @@ def from_bson(bson_str: bytes) -> MATRICES:
     data = bson.loads(bson_str)
 
     # for name, value in data.items():
-    return {name: pa.ipc.read_tensor(value).to_numpy() for name, value in data.items()}
+    return {name: pa.ipc.read_tensor(value).to_numpy() for name, value in
+            data.items()}
