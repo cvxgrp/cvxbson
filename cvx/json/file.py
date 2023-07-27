@@ -14,7 +14,7 @@ from numpyencoder import NumpyEncoder
 # see https://github.com/microsoft/pylance-release/issues/2019
 from typing_extensions import TypeAlias
 
-FILE = Union[str, bytes, PathLike[str], PathLike[bytes], int]
+FILE = Union[str, bytes, PathLike]
 MATRIX: TypeAlias = npt.NDArray[Any]
 DATA = Dict[str, Any]
 
