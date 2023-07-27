@@ -5,15 +5,18 @@ Tools to support working with json files
 import json
 from collections.abc import Iterable
 from os import PathLike
-from typing import Any, Dict
+from typing import Any, Dict, Union
 
 import numpy as np
+import numpy.typing as npt
 from numpyencoder import NumpyEncoder
 
+FILE = Union[str, bytes, PathLike[str], PathLike[bytes], int]
+MATRIX = npt.NDArray[Any]
+DATA = Dict[str, Any]
 
-def read_json(
-    json_file: str | bytes | PathLike[str] | PathLike[bytes] | int,
-) -> Dict[str, Any]:
+
+def read_json(json_file: FILE) -> DATA:
     """Read a json file and return a genaerator of key-value pairs"""
     with open(json_file, "r") as f:
         json_data = json.load(f)
@@ -27,9 +30,7 @@ def read_json(
         return d
 
 
-def write_json(
-    json_file: str | bytes | PathLike[str] | PathLike[bytes] | int, data: Dict[str, Any]
-) -> None:
+def write_json(json_file: FILE, data: DATA) -> None:
     """Write a json file with the data"""
     with open(json_file, "w") as f:
         json.dump(data, f, cls=NumpyEncoder)
