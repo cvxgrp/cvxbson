@@ -9,6 +9,8 @@ from typing import Any, Dict, Union
 
 import numpy.typing as npt
 import pyarrow as pa
+
+# see https://github.com/microsoft/pylance-release/issues/2019
 from typing_extensions import TypeAlias
 
 import bson
