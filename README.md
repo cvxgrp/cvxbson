@@ -24,8 +24,9 @@ numpy arrays to pyarrow tensors and then to bson.
 There might be faster ways to achieve this goal and we are open to suggestions
 and pull requests.
 
-We recommend using json files to transfer configurations and small amounts of data. Bson files can then be used
-to transfer large matrices. A coexistence is possible.
+We recommend using json files to transfer configurations and small amounts of data.
+Bson files can then be used to transfer large matrices. A coexistence is possible
+and encouraged.
 
 ## Demo
 
