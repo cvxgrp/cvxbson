@@ -15,7 +15,8 @@ from typing_extensions import TypeAlias
 
 import bson
 
-FILE = Union[str, bytes, PathLike[str], PathLike[bytes], int]
+# FILE = Union[str, bytes, PathLike[str], PathLike[bytes], int]
+FILE = Union[str, bytes, PathLike]
 MATRIX: TypeAlias = npt.NDArray[Any]
 MATRICES = Dict[str, MATRIX]
 
