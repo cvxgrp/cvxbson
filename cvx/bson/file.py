@@ -5,17 +5,19 @@ Tools to support working with bson files and strings
 from __future__ import annotations
 
 from os import PathLike
-from typing import Any, Dict
+from typing import Any, Dict, Union
 
-import numpy as np
+import numpy.typing as npt
 import pyarrow as pa
 
 import bson
 
+FILE = Union[str, bytes, PathLike[str], PathLike[bytes], int]
+MATRIX = npt.NDArray[Any]
+MATRICES = Dict[str, MATRIX]
 
-def read_bson(
-    file: str | bytes | PathLike[str] | PathLike[bytes] | int,
-) -> Dict[str, np.typing.NDArray[Any]]:
+
+def read_bson(file: FILE) -> MATRICES:
     """
     Read a bson file and prepare the bson_document needed
 
@@ -32,10 +34,7 @@ def read_bson(
         return from_bson(bson_str=openfile.read())
 
 
-def write_bson(
-    file: str | bytes | PathLike[str] | PathLike[bytes] | int,
-    data: Dict[str, np.typing.NDArray[Any]],
-) -> int:
+def write_bson(file: FILE, data: MATRICES) -> int:
     """
     Write dictionary into a bson file
 
@@ -48,7 +47,7 @@ def write_bson(
         return bson_file.write(bson_str)
 
 
-def to_bson(data: Dict[str, np.typing.NDArray[Any]]) -> bytes:
+def to_bson(data: MATRICES) -> bytes:
     """
     Convert a dictionary of numpy arrays into a bson string
 
@@ -71,7 +70,7 @@ def to_bson(data: Dict[str, np.typing.NDArray[Any]]) -> bytes:
     )
 
 
-def from_bson(bson_str: bytes) -> Dict[str, np.typing.NDArray[Any]]:
+def from_bson(bson_str: bytes) -> MATRICES:
     """Convert a bson string into a dictionary of numpy arrays"""
     data = bson.loads(bson_str)
 
