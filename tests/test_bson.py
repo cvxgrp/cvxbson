@@ -2,10 +2,9 @@
 from __future__ import annotations
 
 import numpy as np
-import pytest  # type: ignore
+import pytest
 
-from cvx.bson import read_bson, write_bson
-from cvx.bson.file import from_bson, to_bson
+from cvx.bson.file import from_bson, read_bson, to_bson, write_bson
 
 
 @pytest.mark.parametrize(
