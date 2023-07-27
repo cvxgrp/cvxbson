@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Tools to support working with json files
 """
@@ -21,7 +20,7 @@ DATA = Dict[str, Any]
 
 def read_json(json_file: FILE) -> DATA:
     """Read a json file and return a genaerator of key-value pairs"""
-    with open(json_file, "r") as f:
+    with open(json_file) as f:
         json_data = json.load(f)
         d = {}
         for name, data in json_data.items():

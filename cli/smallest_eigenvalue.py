@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import fire  # type: ignore
 import numpy as np
 
@@ -21,7 +20,3 @@ def smallest_ev(bson_file) -> None:
 
 def main():
     fire.Fire(smallest_ev)
-
-
-# if __name__ == "__main__":
-#    smallest_ev()
