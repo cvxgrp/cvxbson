@@ -15,8 +15,7 @@ def smallest_ev(bson_file) -> None:
     On the command line
 
     poetry run smallest-eigenvalue cli/data/test.bson
-    
-    ""
+    """
     matrix = read_bson(bson_file)["cov"]
     w, _ = np.linalg.eigh(matrix)
     return np.min(w)
