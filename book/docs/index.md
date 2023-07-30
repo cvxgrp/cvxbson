@@ -21,7 +21,7 @@ package to read and write bson files. We are interested in parsing dictionaries
 of numpy arrays as fast as possible. Our current implementation is converting
 numpy arrays to pyarrow tensors and then to bson.
 
-There might be faster ways to achieve this goal and we are open to suggestions
+There might be faster ways to achieve this goal. We are open to suggestions
 and pull requests.
 
 We recommend using json files to transfer configurations and small amounts of data.
