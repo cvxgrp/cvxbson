@@ -10,7 +10,6 @@ packages = [{include = "cvx"}]
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
 numpy = "*"
-requests = "*"
 numpyencoder = "*"
 pyarrow = "*"
 bson = "0.5.10"
@@ -33,6 +32,7 @@ black = "23.3.0"
 [tool.poetry.group.dev.dependencies]
 loguru = "*"
 fire = "*"
+requests = "*"
 
 [tool.poetry.group.stubs.dependencies]
 mypy = "*"
