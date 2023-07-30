@@ -10,6 +10,9 @@ __pycache__/
 # C extensions
 *.so
 
+**/notebooks/test.bson
+**/notebooks/test.json
+
 # Distribution / packaging
 .Python
 build/
