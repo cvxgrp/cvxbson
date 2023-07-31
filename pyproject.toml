@@ -5,8 +5,7 @@ description = "Dealing with json and bson files"
 authors = ["Thomas Schmelzer"]
 readme = "README.md"
 repository = "https://github.com/cvxgrp/cvxbson"
-packages = [{include = "cvx"},
-            {include = "cli"}]
+packages = [{include = "cvx"}]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
@@ -14,8 +13,6 @@ numpy = "*"
 numpyencoder = "*"
 pyarrow = "*"
 bson = "0.5.10"
-fire = "*"
-requests = "*"
 
 [tool.poetry.group.test.dependencies]
 pytest = "7.2.0"
@@ -37,10 +34,6 @@ loguru = "*"
 
 [tool.poetry.group.stubs.dependencies]
 mypy = "*"
-
-[tool.poetry.scripts]
-weather-fire = "cli.weather_fire:main"
-smallest-eigenvalue = "cli.smallest_eigenvalue:main"
 
 [build-system]
 requires = ["poetry-core"]
