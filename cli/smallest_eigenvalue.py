@@ -1,7 +1,7 @@
 import fire  # type: ignore
 import numpy as np
 
-from cvx.bson import read_bson
+from cvx.bson.file import read_bson
 
 
 def smallest_ev(bson_file) -> None:
