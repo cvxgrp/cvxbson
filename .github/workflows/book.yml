@@ -54,6 +54,7 @@ jobs:
       #    name: tests
       #    path: .book/artifacts/tests
       - name: Inspect
+        shell: bash
         run: |
           ls -l .book
           ls -l .book/artifacts
