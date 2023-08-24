@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v3
 
       #- name: Download Book
-        name: Download all artifacts
+      - name: Download all artifacts
         uses: actions/download-artifact@v3
         with:
           #name: book
