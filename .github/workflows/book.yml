@@ -57,8 +57,10 @@ jobs:
         shell: bash
         run: |
           ls -l .book
-          ls -l .book/artifacts
-          ls -l .book/artifacts/sphinx
+          ls -l .book/book
+          ls -l .book/tests
+          ls -l .book/sphinx
+          ls -l .book/build
 
       - name: GitHub Pages action
         uses: JamesIves/github-pages-deploy-action@v4.4.3
