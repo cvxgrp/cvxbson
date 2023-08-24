@@ -37,21 +37,27 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Download Book
+      #- name: Download Book
+        name: Download all artifacts
         uses: actions/download-artifact@v3
         with:
-          name: book
+          #name: book
           path: .book
 
-      - uses: actions/download-artifact@v3
-        with:
-          name: sphinx
-          path: .book/artifacts/sphinx
+      #- uses: actions/download-artifact@v3
+      #  with:
+      #    name: sphinx
+      #    path: .book/artifacts/sphinx
 
-      - uses: actions/download-artifact@v3
-        with:
-          name: tests
-          path: .book/artifacts/tests
+      #- uses: actions/download-artifact@v3
+      #  with:
+      #    name: tests
+      #    path: .book/artifacts/tests
+      - name: Inspect
+        run: |
+          ls -l .book
+          ls -l .book/artifacts
+          ls -l .book/artifacts/sphinx
 
       - name: GitHub Pages action
         uses: JamesIves/github-pages-deploy-action@v4.4.3
