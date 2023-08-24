@@ -1,4 +1,4 @@
-# [cvxbson](https://www.cvxgrp.org/cvxbson/)
+# [cvxbson](https://www.cvxgrp.org/cvxbson/book)
 
 [![PyPI version](https://badge.fury.io/py/cvxbson.svg)](https://badge.fury.io/py/cvxbson)
 [![Apache 2.0
