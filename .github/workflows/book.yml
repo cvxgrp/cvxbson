@@ -33,6 +33,10 @@ jobs:
       contents: write
 
     steps:
+      # This is needed otherwise the deploy action can't create a branch
+      - name: Check out repository
+        uses: actions/checkout@v3
+
       - name: Download all artifacts
         uses: actions/download-artifact@v3
         with:
