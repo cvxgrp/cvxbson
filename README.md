@@ -3,8 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/cvxbson.svg)](https://badge.fury.io/py/cvxbson)
 [![Apache 2.0
 License](https://img.shields.io/badge/License-APACHEv2-brightgreen.svg)](https://github.com/cvxgrp/cvxbson/blob/master/LICENSE)
-[![PyPI download
-month](https://img.shields.io/pypi/dm/cvxbson.svg)](https://pypi.python.org/pypi/cvxbson/)
+[![Downloads](https://static.pepy.tech/personalized-badge/cvxbson?period=month&units=international_system&left_color=black&right_color=orange&left_text=PyPI%20downloads%20per%20month)](https://pepy.tech/project/cvxbson)
 [![Coverage
 Status](https://coveralls.io/repos/github/cvxgrp/cvxbson/badge.png?branch=main)](https://coveralls.io/github/cvxgrp/cvxbson?branch=main)
 
