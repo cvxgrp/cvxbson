@@ -47,5 +47,7 @@ jupyter: install  ## Run jupyter lab
 
 .PHONY: conduct
 conduct: ## Generete CODE of CONDUCT and Contributing
-	@poetry run pip install jinja2 toml
-	@poetry run python templates/parse.py
+	#@poetry run pip install jinja2 toml
+	#@poetry run python templates/parse.py
+	#curl -L https://api.github.com/gists/a4a054e3e80a8021c351b027280d3b09
+	git pull https://gist.github.com/a4a054e3e80a8021c351b027280d3b09.git
