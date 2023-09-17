@@ -1,13 +1,10 @@
 from __future__ import annotations
 import toml
 
-#root = Path(__file__).parent.parent
-d = toml.load("../../pyproject.toml")
-name = d["tool"]["poetry"]["name"]
-print(name)
+toml_data = toml.load("../../pyproject.toml")
+project = toml_data["tool"]["poetry"]["name"]
 
 master_doc = "index"
-project = "cvxbson"
 
 source_suffix = {
     ".rst": "restructuredtext",
@@ -42,7 +39,7 @@ napoleon_numpy_docstring = True
 # HTML -----------------------------------------------------------------
 html_favicon = "_static/logo.jpeg"
 html_logo = "_static/logo.jpeg"
-html_title = "cvxbson Documentation"
+html_title = project + " Documentation"
 html_show_sourcelink = True
 html_css_files = [
     "custom.css",
