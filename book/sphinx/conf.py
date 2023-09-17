@@ -1,4 +1,10 @@
 from __future__ import annotations
+import toml
+
+#root = Path(__file__).parent.parent
+d = toml.load("../../pyproject.toml")
+name = d["tool"]["poetry"]["name"]
+print(name)
 
 master_doc = "index"
 project = "cvxbson"
