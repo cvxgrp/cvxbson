@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import toml
 
 toml_data = toml.load("../../pyproject.toml")
