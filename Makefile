@@ -44,3 +44,8 @@ help:  ## Display this help screen
 jupyter: install  ## Run jupyter lab
 	@poetry run pip install jupyterlab
 	@poetry run jupyter lab
+
+.PHONY: conduct
+conduct: ## Generete CODE of CONDUCT and Contributing
+	@poetry run pip install jinja2 toml
+	@poetry run python templates/parse.py
