@@ -21,6 +21,8 @@ pytest-cov = "4.1.0"
 
 [tool.poetry.group.dev.dependencies]
 loguru = "*"
+toml = "*"
+jinja2 = "*"
 
 [build-system]
 requires = ["poetry>=1.6.0"]
