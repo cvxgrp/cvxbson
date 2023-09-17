@@ -54,4 +54,7 @@ conduct: ## Generete CODE of CONDUCT and Contributing
 
 .PHONY: boil
 boil: ## Update the boilerplate code
-	@gh repo clone git@github.com:cvxgrp/boilerplate.git tmpBoil
+	@gh repo clone git@github.com:cvxgrp/boilerplate.git .tmp
+	@cd .tmp  && poetry install -vv && cd ..
+	@.tmp/.venv/bin/python .tmp/parse.py pyproject.toml
+	@rm -rf .tmp

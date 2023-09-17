@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-import toml
-
-toml_data = toml.load("../../pyproject.toml")
-project = toml_data["tool"]["poetry"]["name"]
+project = "cvxbson"
 
 master_doc = "index"
 
@@ -40,7 +37,7 @@ napoleon_numpy_docstring = True
 # HTML -----------------------------------------------------------------
 html_favicon = "_static/logo.jpeg"
 html_logo = "_static/logo.jpeg"
-html_title = project + " Documentation"
+html_title = "cvxbson Documentation"
 html_show_sourcelink = True
 html_css_files = [
     "custom.css",
