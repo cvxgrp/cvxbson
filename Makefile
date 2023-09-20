@@ -49,8 +49,3 @@ jupyter: install  ## Run jupyter lab
 boil: ## Update the boilerplate code
 	@poetry run pip install cvxcooker
 	@poetry run cook pyproject.toml
-
-.PHONY: weather
-weather: ## Display weather
-	@poetry run pip install cvxcli
-	@poetry run weather temperature
