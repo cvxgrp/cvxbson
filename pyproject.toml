@@ -9,7 +9,7 @@ packages = [{include = "cvx"}]
 homepage = "https://www.cvxgrp.org/cvxbson"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.13"
+python = ">=3.9,<3.12"
 numpy = "*"
 numpyencoder = "*"
 pyarrow = "*"
