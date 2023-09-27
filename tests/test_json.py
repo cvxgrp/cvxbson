@@ -8,6 +8,13 @@ from cvx.json import read_json, write_json
     "shape", [(50, 50), (1000, 50), (50, 1000), (1000, 1000), (5000, 2000)]
 )
 def test_read_and_write_json(tmp_path, shape):
+    """
+    Test that a numpy array is written and read correctly
+
+    Args:
+        tmp_path: temporary path fixture
+        shape: shape of the matrix
+    """
     data = {"a": np.random.rand(*shape), "b": 3.0, "c": "test"}
     write_json(tmp_path / "test.json", data)
 
