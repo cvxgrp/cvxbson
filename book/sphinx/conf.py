@@ -16,6 +16,7 @@ extensions = [
     "autoapi.extension",
 ]
 
+
 source_dir = "cvx"
 autoapi_type = "python"
 autoapi_dirs = [f"../../{source_dir}"]
@@ -33,8 +34,8 @@ napoleon_google_docstring = True
 napoleon_numpy_docstring = True
 
 # HTML -----------------------------------------------------------------
-html_favicon = "_static/logo.jpeg"
-html_logo = "_static/logo.jpeg"
+# html_favicon = "_static/logo.jpeg"
+# html_logo = "_static/logo.jpeg"
 html_title = "cvxbson Documentation"
 html_show_sourcelink = True
 html_css_files = [
