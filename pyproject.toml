@@ -12,6 +12,7 @@ homepage = "https://www.cvxgrp.org/cvxbson"
 python = ">=3.9,<3.12"
 numpy = "*"
 numpyencoder = "*"
+pandas = "*"
 pyarrow = "*"
 bson = "0.5.10"
 typing_extensions = "*"
@@ -19,9 +20,15 @@ typing_extensions = "*"
 [tool.poetry.group.test.dependencies]
 pytest = "*"
 pytest-cov = "*"
+pre-commit = "*"
 
 [tool.poetry.group.dev.dependencies]
 loguru = "*"
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
 
 [build-system]
 requires = ["poetry>=1.6.0"]
