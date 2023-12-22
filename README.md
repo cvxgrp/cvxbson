@@ -17,8 +17,7 @@ programming languages. However, they are not very efficient.
 Here we use their binary counterpart, bson files. Bson files are much more efficient
 but somewhat lack the flexibility of json files. Here we rely on the [bson](https://pypi.org/project/bson/)
 package to read and write bson files. We are interested in parsing dictionaries
-of numpy arrays as fast as possible. Our current implementation is converting
-numpy arrays to pyarrow tensors and then to bson.
+of numpy arrays, pandas and  polars dataframe as fast as possible.
 
 There might be faster ways to achieve this goal and we are open to suggestions
 and pull requests.
