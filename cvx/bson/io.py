@@ -40,7 +40,7 @@ def encode(data: Union[np.ndarray, pd.DataFrame]) -> Any:
     raise TypeError(f"Invalid Datatype {type(data)}")
 
 
-def decode(data: bytes) -> Union[np.ndarray | pd.DataFrame]:
+def decode(data: bytes) -> Union[np.ndarray, pd.DataFrame]:
     """
     Decode the bytes back into numpy array or pandas DataFrame
 
