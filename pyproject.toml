@@ -25,6 +25,11 @@ pre-commit = "*"
 [tool.poetry.group.dev.dependencies]
 loguru = "*"
 
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
 [build-system]
 requires = ["poetry>=1.6.0"]
 build-backend = "poetry.core.masonry.api"
