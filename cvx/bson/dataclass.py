@@ -26,3 +26,10 @@ class Data:
     def from_bson(cls, file: FILE) -> Any:
         x = read_bson(file)
         return cls(**x)
+
+    @classmethod
+    def keys(cls):
+        yield from cls.__dict__["__annotations__"].keys()
+
+    def items(self):
+        yield from self.__dict__.items()
