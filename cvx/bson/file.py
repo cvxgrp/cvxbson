@@ -29,7 +29,7 @@ import bson
 from cvx.bson.io import decode, encode
 
 FILE = Union[str, bytes, PathLike]
-MATRIX: TypeAlias = npt.NDArray[Any] | pd.DataFrame
+MATRIX: TypeAlias = Union[npt.NDArray[Any], pd.DataFrame]
 MATRICES = Dict[str, MATRIX]
 
 
