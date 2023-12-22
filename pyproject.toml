@@ -15,6 +15,7 @@ numpyencoder = "*"
 pandas = "*"
 pyarrow = "*"
 bson = "0.5.10"
+polars = "*"
 typing_extensions = "*"
 
 [tool.poetry.group.test.dependencies]
