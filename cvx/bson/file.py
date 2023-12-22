@@ -20,16 +20,16 @@ from os import PathLike
 from typing import Any, Dict, Union
 
 import numpy.typing as npt
-import pyarrow as pa
+import pandas as pd
 
 # see https://github.com/microsoft/pylance-release/issues/2019
 from typing_extensions import TypeAlias
 
 import bson
+from cvx.bson.io import decode, encode
 
-# FILE = Union[str, bytes, PathLike[str], PathLike[bytes], int]
 FILE = Union[str, bytes, PathLike]
-MATRIX: TypeAlias = npt.NDArray[Any]
+MATRIX: TypeAlias = npt.NDArray[Any] | pd.DataFrame
 MATRICES = Dict[str, MATRIX]
 
 
@@ -58,9 +58,8 @@ def write_bson(file: FILE, data: MATRICES) -> int:
         file: file
         data: dictionary of numpy arrays
     """
-    bson_str = to_bson(data=data)
     with open(file=file, mode="wb") as bson_file:
-        return bson_file.write(bson_str)
+        return bson_file.write(to_bson(data=data))
 
 
 def to_bson(data: MATRICES) -> bytes:
@@ -70,25 +69,9 @@ def to_bson(data: MATRICES) -> bytes:
     Args:
         data: dictionary of numpy arrays
     """
-
-    def _encode_tensor(tensor: pa.lib.Tensor) -> bytes:
-        buffer = pa.BufferOutputStream()
-        pa.ipc.write_tensor(tensor, buffer)
-        return bytes(buffer.getvalue().to_pybytes())
-
-    return bytes(
-        bson.dumps(
-            {
-                name: _encode_tensor(pa.Tensor.from_numpy(obj=matrix))
-                for name, matrix in data.items()
-            }
-        )
-    )
+    return bytes(bson.dumps({name: encode(matrix) for name, matrix in data.items()}))
 
 
 def from_bson(bson_str: bytes) -> MATRICES:
     """Convert a bson string into a dictionary of numpy arrays"""
-    data = bson.loads(bson_str)
-
-    # for name, value in data.items():
-    return {name: pa.ipc.read_tensor(value).to_numpy() for name, value in data.items()}
+    return {name: decode(value) for name, value in bson.loads(bson_str).items()}
