@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import polars as pl
 import pytest
 
 from cvx.bson.file import from_bson, to_bson
@@ -14,6 +15,7 @@ def data():
             data=np.random.rand(2, 2),
             index=[pd.Timestamp("2020-01-01"), pd.Timestamp("2022-01-01")],
         ),
+        "polars": pl.DataFrame(data=np.random.rand(10, 3)),
     }
 
 
@@ -25,6 +27,9 @@ def assert_equal(obj1, obj2):
 
     if isinstance(obj1, np.ndarray):
         np.testing.assert_array_equal(obj1, obj2)
+
+    if isinstance(obj1, pl.DataFrame):
+        assert obj1.equals(obj2)
 
 
 def test_roundtrip(data):
