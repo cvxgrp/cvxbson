@@ -28,6 +28,9 @@ def assert_equal(obj1, obj2):
     if isinstance(obj1, np.ndarray):
         np.testing.assert_array_equal(obj1, obj2)
 
+    if isinstance(obj1, pl.DataFrame):
+        assert obj1.equals(obj2)
+
 
 def test_roundtrip(data):
     """
