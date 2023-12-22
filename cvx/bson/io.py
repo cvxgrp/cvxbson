@@ -16,10 +16,11 @@ from typing import Any, Union
 
 import numpy as np
 import pandas as pd
+import polars as pl
 import pyarrow as pa
 
 
-def encode(data: Union[np.ndarray, pd.DataFrame]) -> Any:
+def encode(data: Union[np.ndarray, pd.DataFrame, pl.DataFrame]) -> Any:
     """
     Encode a numpy array or a pandas DataFrame
 
@@ -37,10 +38,15 @@ def encode(data: Union[np.ndarray, pd.DataFrame]) -> Any:
     if isinstance(data, pd.DataFrame):
         return data.to_parquet()
 
+    if isinstance(data, pl.DataFrame):
+        result = data.write_ipc(file=None)
+        result.seek(0)
+        return result.read()
+
     raise TypeError(f"Invalid Datatype {type(data)}")
 
 
-def decode(data: bytes) -> Union[np.ndarray, pd.DataFrame]:
+def decode(data: bytes) -> Union[np.ndarray, pd.DataFrame, pl.DataFrame]:
     """
     Decode the bytes back into numpy array or pandas DataFrame
 
@@ -50,7 +56,12 @@ def decode(data: bytes) -> Union[np.ndarray, pd.DataFrame]:
     Returns:
         The array or the frame
     """
-    try:
-        return pa.ipc.read_tensor(data).to_numpy()
-    except pa.ArrowInvalid:
+    header = data[:3]
+
+    if header == b"ARR":
+        return pl.read_ipc(data)
+
+    if header == b"PAR":
         return pd.read_parquet(BytesIO(data))
+
+    return pa.ipc.read_tensor(data).to_numpy()
