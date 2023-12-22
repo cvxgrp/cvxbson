@@ -11,4 +11,18 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
-from cvx.bson.file import read_bson, write_bson
+from dataclasses import dataclass
+from typing import Any
+
+from cvx.bson.file import FILE, read_bson, write_bson
+
+
+@dataclass(frozen=True)
+class Data:
+    def to_bson(self, file: FILE) -> int:
+        return write_bson(file, self.__dict__)
+
+    @classmethod
+    def from_bson(cls, file: FILE) -> Any:
+        x = read_bson(file)
+        return cls(**x)
