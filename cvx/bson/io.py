@@ -56,12 +56,16 @@ def decode(data: bytes) -> Union[np.ndarray, pd.DataFrame, pl.DataFrame]:
     Returns:
         The array or the frame
     """
+    # reader the first few bytes
     header = data[:3]
 
+    # ARR indicates a pl.DataFrame
     if header == b"ARR":
         return pl.read_ipc(data)
 
+    # PAR indicates a pd.DataFrame
     if header == b"PAR":
         return pd.read_parquet(BytesIO(data))
 
+    # if still here we try numpy
     return pa.ipc.read_tensor(data).to_numpy()
