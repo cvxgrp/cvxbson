@@ -12,14 +12,14 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 from io import BytesIO
-from typing import Any
+from typing import Any, Union
 
 import numpy as np
 import pandas as pd
 import pyarrow as pa
 
 
-def encode(data: np.ndarray | pd.DataFrame) -> Any:
+def encode(data: Union[np.ndarray, pd.DataFrame]) -> Any:
     """
     Encode a numpy array or a pandas DataFrame
 
@@ -40,7 +40,7 @@ def encode(data: np.ndarray | pd.DataFrame) -> Any:
     raise TypeError(f"Invalid Datatype {type(data)}")
 
 
-def decode(data: bytes) -> np.ndarray | pd.DataFrame:
+def decode(data: bytes) -> Union[np.ndarray | pd.DataFrame]:
     """
     Decode the bytes back into numpy array or pandas DataFrame
 
