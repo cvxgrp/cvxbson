@@ -9,11 +9,8 @@ from cvx.bson.dataclass import Data
 @dataclass(frozen=True)
 class DataAPI(Data):
     # List of tables expected
-
     A: pl.DataFrame
-
     B: pl.DataFrame
-
     C: pl.DataFrame
 
     # Define a mutable value for the mapping from short name to full name
@@ -23,8 +20,29 @@ class DataAPI(Data):
 
 
 if __name__ == "__main__":
-    data = DataAPI(A=pl.DataFrame(), B=pl.DataFrame(), C=pl.DataFrame())
+    # We add this as a little demo
+    import numpy as np
+
+    data = DataAPI(
+        A=pl.DataFrame(np.random.rand(10, 5)),
+        B=pl.DataFrame(np.random.rand(20, 3)),
+        C=pl.DataFrame(np.random.rand(50, 5)),
+    )
+
+    # We can access the tables
     print(data.tables)
     print(data.A)
     print(data.B)
     print(data.C)
+
+    # convert all data into one bson file
+    print(data.to_bson("xxx.bson"))
+
+    data2 = DataAPI.from_bson("xxx.bson")
+    print(data2)
+
+    def strategy(api: DataAPI):
+        # the strategy has no idea how the data is stored
+        print(api.A)
+
+    strategy(data2)
