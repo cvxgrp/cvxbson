@@ -34,7 +34,6 @@ coverage: install ## test and coverage
 		xdg-open htmlcov/index.html 2> /dev/null; \
 	fi
 
-
 .PHONY: help
 help:  ## Display this help screen
 	@echo -e "\033[1mAvailable commands:\033[0m"
