@@ -64,10 +64,10 @@ def write_bson(file: FILE, data: MATRICES) -> int:
 
 def to_bson(data: MATRICES) -> bytes:
     """
-    Convert a dictionary of numpy arrays into a bson string
+    Convert a dictionary of data into a bson string
 
     Args:
-        data: dictionary of numpy arrays
+        data: dictionary of data
     """
     return bytes(bson.dumps({name: encode(matrix) for name, matrix in data.items()}))
 
