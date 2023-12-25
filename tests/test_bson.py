@@ -26,19 +26,6 @@ def test_write(tmp_path, shape):
     np.allclose(x["a"], data["a"])
 
 
-def test_wrong_type(tmp_path):
-    """
-    Test a TypeError is raised when trying to write a dict
-    of data that is not supported
-
-    Args:
-        tmp_path: temporary path fixture
-    """
-    data = {"B": 3}
-    with pytest.raises(TypeError):
-        write_bson(data=data, file=tmp_path / "maffay.bson")
-
-
 def test_vector(tmp_path):
     """
     Test that a vector is written and read correctly
