@@ -11,6 +11,7 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
+import json
 from io import BytesIO
 from typing import Any, Union
 
@@ -43,7 +44,17 @@ def encode(data: Union[np.ndarray, pd.DataFrame, pl.DataFrame]) -> Any:
         result.seek(0)
         return result.read()
 
-    raise TypeError(f"Invalid Datatype {type(data)}")
+    converted = json.dumps(data).encode(encoding="utf-8")
+    arr = bytes("cvx", "utf-8")
+    return arr + converted
+
+    # return bytes.
+    # print(encoded_tuple)
+    # decoded_color = encoded_color.decode()
+    # orginal_form = json.load(decoded_color)
+    # return
+
+    # raise TypeError(f"Invalid Datatype {type(data)}")
 
 
 def decode(data: bytes) -> Union[np.ndarray, pd.DataFrame, pl.DataFrame]:
@@ -66,6 +77,9 @@ def decode(data: bytes) -> Union[np.ndarray, pd.DataFrame, pl.DataFrame]:
     # PAR indicates a pd.DataFrame
     if header == b"PAR":
         return pd.read_parquet(BytesIO(data))
+
+    if header == b"cvx":
+        return json.loads(data[3:].decode())
 
     # if still here we try numpy
     return pa.ipc.read_tensor(data).to_numpy()
