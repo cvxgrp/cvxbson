@@ -6,7 +6,6 @@ authors = ["Thomas Schmelzer"]
 readme = "README.md"
 repository = "https://github.com/cvxgrp/cvxbson"
 packages = [{include = "cvx"}]
-homepage = "https://www.cvxgrp.org/cvxbson"
 
 [tool.poetry.dependencies]
 python = ">=3.9"
