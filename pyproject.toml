@@ -10,7 +10,7 @@ packages = [{include = "cvx"}]
 [tool.poetry.dependencies]
 python = ">=3.9"
 numpy = "*"
-numpyencoder = "*"
+#numpyencoder = "*"
 pandas = "*"
 pyarrow = "*"
 bson = "0.5.10"
