@@ -39,37 +39,3 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["cvx"]
-
-[tool.poetry.dependencies]
-python = ">=3.10"
-numpy = "*"
-pandas = "*"
-pyarrow = "*"
-bson = "0.5.10"
-polars = "*"
-typing_extensions = "*"
-jinja2 = "*"
-
-#[tool.poetry.group.test.dependencies]
-#pytest = "*"
-#pytest-cov = "*"
-#pre-commit = "*"
-
-#[tool.poetry.group.dev.dependencies]
-#loguru = "*"
-
-#[[tool.poetry.source]]
-#name = "PyPI"
-#priority = "primary"
-
-#[build-system]
-#requires = ["poetry>=1.6.0"]
-#build-backend = "poetry.core.masonry.api"
-
-#[tool.ruff]
-#select = ["E", "F", "I"]
-#line-length = 120
-#target-version = "py310"
-#exclude = [
-#    "*__init__.py"
-#]
