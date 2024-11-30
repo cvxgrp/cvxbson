@@ -48,25 +48,25 @@ against using it. It is much slower and less efficient.
 You may want to avoid the explicit construction of files.
 It is possible to work directly with bson strings. We provide methods for that, too.
 
-## Poetry
+## uv
 
-We assume you share already the love for [Poetry](https://python-poetry.org).
-Once you have installed poetry you can perform
+Starting with
 
 ```bash
 make install
 ```
 
-to replicate the virtual environment we have defined in [pyproject.toml](pyproject.toml)
-and locked in [poetry.lock](poetry.lock).
+will install [uv](https://github.com/astral-sh/uv) and create
+the virtual environment defined in
+pyproject.toml and locked in uv.lock.
 
-## Jupyter
+## marimo
 
-We install [JupyterLab](https://jupyter.org) on fly within the aforementioned
+We install [marimo](https://marimo.io) on the fly within the aforementioned
 virtual environment. Executing
 
 ```bash
-make jupyter
+make marimo
 ```
 
-will install and start the jupyter lab.
+will install and start marimo.
