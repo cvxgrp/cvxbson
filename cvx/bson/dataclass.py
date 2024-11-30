@@ -14,7 +14,7 @@
 from dataclasses import dataclass
 from typing import Any
 
-from cvx.bson.file import FILE, read_bson, write_bson
+from .file import FILE, read_bson, write_bson
 
 
 @dataclass(frozen=True)

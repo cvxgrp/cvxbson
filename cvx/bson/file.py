@@ -26,7 +26,7 @@ import pandas as pd
 from typing_extensions import TypeAlias
 
 import bson
-from cvx.bson.io import decode, encode
+from .io import decode, encode
 
 FILE = Union[str, bytes, PathLike]
 MATRIX: TypeAlias = Union[npt.NDArray[Any], pd.DataFrame]
