@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md(
-        r"""
-        # cvxbson
-        """
-    )
+    mo.md(r"""# cvxbson""")
     return
 
 
@@ -25,11 +21,7 @@ def __():
 
 @app.cell
 def __(mo):
-    mo.md(
-        r"""
-        ## Create a dictionary of numpy arrays
-        """
-    )
+    mo.md(r"""## Create a dictionary of numpy arrays""")
     return
 
 
@@ -41,11 +33,7 @@ def __(np):
 
 @app.cell
 def __(mo):
-    mo.md(
-        r"""
-        ## json
-        """
-    )
+    mo.md(r"""## json""")
     return
 
 
@@ -60,11 +48,7 @@ def __(data, np, read_json, write_json):
 
 @app.cell
 def __(mo):
-    mo.md(
-        r"""
-        ## bson
-        """
-    )
+    mo.md(r"""## bson""")
     return
 
 

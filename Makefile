@@ -7,9 +7,9 @@ UNAME=$(shell uname -s)
 .PHONY: install
 install:  ## Install a virtual environment
 	@curl -LsSf https://astral.sh/uv/install.sh | sh
-	#@uv venv
 	@uv sync -vv
-	. .venv/bin/activate
+	@echo 'Please perform'
+	@echo 'source .venv/bin/activate'
 
 .PHONY: fmt
 fmt:  ## Run autoformatting and linting
@@ -45,12 +45,6 @@ coverage: install ## test and coverage
 help:  ## Display this help screen
 	@echo -e "\033[1mAvailable commands:\033[0m"
 	@grep -E '^[a-z.A-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-18s\033[0m %s\n", $$1, $$2}' | sort
-
-
-.PHONY: jupyter
-jupyter: install ## Start jupyter lab
-	@uv pip install jupyterlab
-	@uv run jupyter lab
 
 
 .PHONY: marimo
