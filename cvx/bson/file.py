@@ -26,6 +26,7 @@ import pandas as pd
 from typing_extensions import TypeAlias
 
 import bson
+
 from .io import decode, encode
 
 FILE = Union[str, bytes, PathLike]
