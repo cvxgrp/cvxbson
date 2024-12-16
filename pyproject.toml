@@ -4,7 +4,6 @@ version = "0.0.0"
 description = "Dealing with json and bson files"
 authors = [{name = "Thomas Schmelzer", email = "thomas.schmelzer@gmail.com"}]
 readme = "README.md"
-repository = "https://github.com/cvxgrp/cvxbson"
 requires-python = ">=3.10"
 dependencies = [
     "bson>=0.5.10",
@@ -14,6 +13,9 @@ dependencies = [
     "pyarrow>=18.1.0",
     "typing-extensions>=4.12.2",
 ]
+
+[project.urls]
+repository = "https://github.com/cvxgrp/cvxbson"
 
 [dependency-groups]
 dev = [
