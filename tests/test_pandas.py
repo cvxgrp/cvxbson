@@ -20,7 +20,7 @@ def data():
 
 
 def assert_equal(obj1, obj2):
-    assert type(obj1) == type(obj2)
+    assert type(obj1) is type(obj2)
 
     if isinstance(obj1, pd.DataFrame):
         pd.testing.assert_frame_equal(obj1, obj2)
