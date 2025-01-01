@@ -6,9 +6,7 @@ import pytest
 from cvx.bson.file import from_bson, read_bson, to_bson, write_bson
 
 
-@pytest.mark.parametrize(
-    "shape", [(50, 50), (1000, 50), (50, 1000), (1000, 1000), (5000, 2000)]
-)
+@pytest.mark.parametrize("shape", [(50, 50), (1000, 50), (50, 1000), (1000, 1000), (5000, 2000)])
 def test_write(tmp_path, shape):
     """
     Test that a numpy array is written and read correctly
@@ -42,9 +40,7 @@ def test_vector(tmp_path):
     np.allclose(x["a"], data["a"])
 
 
-@pytest.mark.parametrize(
-    "shape", [(50, 50), (1000, 50), (50, 1000), (1000, 1000), (5000, 2000)]
-)
+@pytest.mark.parametrize("shape", [(50, 50), (1000, 50), (50, 1000), (1000, 1000), (5000, 2000)])
 def test_without_file(shape):
     """
     Test that a matrix is written and read correctly

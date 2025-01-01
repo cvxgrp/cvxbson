@@ -14,6 +14,7 @@
 """
 Tools to support working with bson files and strings
 """
+
 from __future__ import annotations
 
 from os import PathLike

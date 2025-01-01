@@ -14,9 +14,7 @@ class DataAPI(Data):
     C: pl.DataFrame
 
     # Define a mutable value for the mapping from short name to full name
-    tables: Dict[str, str] = field(
-        default_factory=lambda: {"A": "AAA", "B": "BBB", "C": "CCC"}
-    )
+    tables: Dict[str, str] = field(default_factory=lambda: {"A": "AAA", "B": "BBB", "C": "CCC"})
 
 
 if __name__ == "__main__":

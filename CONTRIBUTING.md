@@ -19,7 +19,7 @@ Before sending a pull request, make sure you do the following:
 ## Building cvxbson from source
 
 You'll need to build cvxbson locally in order to start editing code.
-Please install [task](https://taskfile.dev)
+Please install [task](https://taskfile.dev).
 
 To install cvxbson from source, clone the Github
 repository, navigate to its root, and run the following command:

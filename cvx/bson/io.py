@@ -51,7 +51,7 @@ def encode(data: Union[np.ndarray, pd.DataFrame, pl.DataFrame]) -> Any:
     # return bytes.
     # print(encoded_tuple)
     # decoded_color = encoded_color.decode()
-    # orginal_form = json.load(decoded_color)
+    # original_form = json.load(decoded_color)
     # return
 
     # raise TypeError(f"Invalid Datatype {type(data)}")
