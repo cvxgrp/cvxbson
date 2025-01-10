@@ -20,13 +20,12 @@ from __future__ import annotations
 from os import PathLike
 from typing import Any, Dict, Union
 
+import bson
 import numpy.typing as npt
 import pandas as pd
 
 # see https://github.com/microsoft/pylance-release/issues/2019
 from typing_extensions import TypeAlias
-
-import bson
 
 from .io import decode, encode
 
