@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import polars as pl
 
-from src.cvx.bson.io import decode, encode
+from cvx.bson.io import decode, encode
 
 
 def test_pl():

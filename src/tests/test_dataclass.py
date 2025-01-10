@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import polars as pl
 
-from src.cvx.bson.dataclass import Data
+from cvx.bson.dataclass import Data
 
 
 @dataclass(frozen=True)

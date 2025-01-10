@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from src.cvx.json import read_json, write_json
+from cvx.json import read_json, write_json
 
 
 @pytest.mark.parametrize("shape", [(50, 50), (1000, 50), (50, 1000), (1000, 1000), (5000, 2000)])

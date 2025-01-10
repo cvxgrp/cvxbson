@@ -13,6 +13,7 @@ jobs:
       - uses: cvxgrp/.github/actions/uv/coverage@v2.0.0
         with:
           source-folder: 'src/cvx'
+
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2
         with:
@@ -27,4 +28,4 @@ jobs:
 
       - uses: cvxgrp/.github/actions/uv/deptry@v2.0.0
         with:
-          source-folder: 'src'
+          source-folder: 'src/cvx'
