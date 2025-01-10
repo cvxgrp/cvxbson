@@ -14,8 +14,8 @@ def __(mo):
 def __():
     import numpy as np
 
-    from cvx.bson import read_bson, write_bson
-    from cvx.json import read_json, write_json
+    from src.cvx.bson import read_bson, write_bson
+    from src.cvx.json import read_json, write_json
 
     return np, read_bson, read_json, write_bson, write_json
 

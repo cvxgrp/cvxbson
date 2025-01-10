@@ -3,7 +3,7 @@ import pandas as pd
 import polars as pl
 import pytest
 
-from cvx.bson.file import from_bson, to_bson
+from src.cvx.bson.file import from_bson, to_bson
 
 
 @pytest.fixture()
