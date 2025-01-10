@@ -3,7 +3,7 @@ from typing import Dict
 
 import polars as pl
 
-from cvx.bson.dataclass import Data
+from src.cvx.bson.dataclass import Data
 
 
 @dataclass(frozen=True)

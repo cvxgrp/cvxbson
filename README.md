@@ -32,9 +32,9 @@ and encouraged.
 ```python
 import numpy as np
 
-from cvx.bson import read_bson, write_bson
+from src.cvx.bson import read_bson, write_bson
 
-data = {"A": np.random.rand(50,50), "B": np.random.rand(50)}
+data = {"A": np.random.rand(50, 50), "B": np.random.rand(50)}
 
 write_bson("test.bson", data)
 recovered = read_bson("test.bson")
