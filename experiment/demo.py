@@ -3,7 +3,7 @@ from typing import Dict
 
 import polars as pl
 
-from src.cvx.bson.dataclass import Data
+from cvx.bson.dataclass import Data
 
 
 @dataclass(frozen=True)
@@ -34,9 +34,9 @@ if __name__ == "__main__":
     print(data.C)
 
     # convert all data into one bson file
-    print(data.to_bson("xxx.bson"))
+    print(data.to_bson("data.bson"))
 
-    data2 = DataAPI.from_bson("xxx.bson")
+    data2 = DataAPI.from_bson("data.bson")
     print(data2)
 
     def strategy(api: DataAPI):
