@@ -48,6 +48,7 @@ jobs:
 
     permissions:
       contents: write
+      pages: write
 
     steps:
       - name: Checkout [${{ github.repository }}]
