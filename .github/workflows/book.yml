@@ -7,19 +7,13 @@ jobs:
   marimo:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout [${{ github.repository }}]
-        uses: actions/checkout@v4
-
-      - uses: cvxgrp/.github/actions/uv/marimo@v2.0.13
+      - uses: cvxgrp/.github/actions/uv/marimo@v2.0.17
 
 
   test:
     runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout [${{ github.repository }}]
-        uses: actions/checkout@v4
-
-      - uses: cvxgrp/.github/actions/uv/coverage@v2.0.13
+      - uses: cvxgrp/.github/actions/uv/coverage@v2.0.17
         with:
           source-folder: 'src/cvx'
           tests-folder: 'src/tests'
