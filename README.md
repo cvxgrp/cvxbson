@@ -7,7 +7,6 @@ License](https://img.shields.io/badge/License-APACHEv2-brightgreen.svg)](https:/
 [![Coverage Status](https://coveralls.io/repos/github/cvxgrp/cvxbson/badge.png?branch=main)](https://coveralls.io/github/cvxgrp/cvxbson?branch=main)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://github.com/renovatebot/renovate)
 
-
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/cvxgrp/cvxbson)
 
 ## IPC
