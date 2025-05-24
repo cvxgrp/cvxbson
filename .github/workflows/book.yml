@@ -13,9 +13,9 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Build the virtual environment for ${{ github.repository }}"
-        uses: cvxgrp/.github/actions/uv/environment@v2.1.1
+        uses: cvxgrp/.github/actions/environment@v2.2.8
 
-      - uses: cvxgrp/.github/actions/marimo@v2.1.1
+      - uses: cvxgrp/.github/actions/marimo@v2.2.8
 
 
   # Runs tests and generates coverage reports for the source code
@@ -23,9 +23,9 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Build the virtual environment for ${{ github.repository }}"
-        uses: cvxgrp/.github/actions/uv/environment@v2.1.1
+        uses: cvxgrp/.github/actions/environment@v2.2.8
 
-      - uses: cvxgrp/.github/actions/coverage@v2.1.1
+      - uses: cvxgrp/.github/actions/coverage@v2.2.8
         with:
           source-folder: 'src/cvx'
           tests-folder: 'src/tests'
@@ -35,18 +35,18 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Build the virtual environment for ${{ github.repository }}"
-        uses: cvxgrp/.github/actions/uv/environment@v2.1.1
+        uses: cvxgrp/.github/actions/environment@v2.2.8
 
-      - uses: cvxgrp/.github/actions/jupyter@v2.1.1
+      - uses: cvxgrp/.github/actions/jupyter@v2.2.8
 
   # Generates API documentation using pdoc for the source code
   pdoc:
     runs-on: ubuntu-latest
     steps:
       - name: "Build the virtual environment for ${{ github.repository }}"
-        uses: cvxgrp/.github/actions/uv/environment@v2.1.1
+        uses: cvxgrp/.github/actions/environment@v2.2.8
 
-      - uses: cvxgrp/.github/actions/pdoc@v2.1.1
+      - uses: cvxgrp/.github/actions/pdoc@v2.2.8
         with:
           source-folder: 'src/cvx'
 
@@ -62,4 +62,4 @@ jobs:
       pages: write
 
     steps:
-      - uses: cvxgrp/.github/actions/book@v2.1.1
+      - uses: cvxgrp/.github/actions/book@v2.2.8

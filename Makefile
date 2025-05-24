@@ -5,7 +5,8 @@ RESET := \033[0m
 
 .DEFAULT_GOAL := help
 
-.PHONY: help verify install fmt test marimo clean build demo
+.PHONY: help verify install fmt test marimo clean
+
 
 ##@ Development Setup
 
@@ -41,13 +42,6 @@ clean: ## Clean generated files and directories
 	@git clean -d -X -f
 	@git branch -v | grep "\[gone\]" | cut -f 3 -d ' ' | xargs git branch -D 2>/dev/null || true
 
-##@ Building & Distribution
-
-build: install ## Build the package
-	@printf "$(BLUE)Building package...$(RESET)\n"
-	@uv pip install build
-	@uv run python -m build
-
 ##@ Marimo & Jupyter
 
 marimo: install ## Start a Marimo server
@@ -55,11 +49,6 @@ marimo: install ## Start a Marimo server
 	@uv pip install marimo
 	@uv run marimo edit book/marimo
 
-##@ Demo & Examples
-
-demo: install ## Run the demo application
-	@printf "$(BLUE)Running demo...$(RESET)\n"
-	@uv run python experiment/demo.py
 
 ##@ Help
 
