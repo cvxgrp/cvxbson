@@ -1,4 +1,4 @@
-# [cvxbson](https://www.cvxgrp.org/cvxbson/book)
+# 📦 [cvxbson](https://www.cvxgrp.org/cvxbson/book)
 
 [![PyPI version](https://badge.fury.io/py/cvxbson.svg)](https://badge.fury.io/py/cvxbson)
 [![Apache 2.0
@@ -9,7 +9,7 @@ License](https://img.shields.io/badge/License-APACHEv2-brightgreen.svg)](https:/
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/cvxgrp/cvxbson)
 
-## IPC
+## 🔄 IPC
 
 IPC stands for InterProcess Communication. It is a mechanism that allows to share
 data between processes. A traditional way to do so is to use json files.
@@ -28,7 +28,7 @@ We recommend using json files to transfer configurations and small amounts of da
 Bson files can then be used to transfer large matrices. A coexistence is possible
 and encouraged.
 
-## Demo
+## 🚀 Demo
 
 ```python
 import numpy as np
@@ -50,7 +50,7 @@ against using it. It is much slower and less efficient.
 You may want to avoid the explicit construction of files.
 It is possible to work directly with bson strings. We provide methods for that, too.
 
-## uv
+## 🛠️ uv
 
 You need to install [task](https://taskfile.dev).
 Starting with
@@ -63,7 +63,7 @@ will install [uv](https://github.com/astral-sh/uv) and create
 the virtual environment defined in
 pyproject.toml and locked in uv.lock.
 
-## marimo
+## 📊 marimo
 
 We install [marimo](https://marimo.io) on the fly within the aforementioned
 virtual environment. Executing

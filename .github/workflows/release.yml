@@ -1,5 +1,9 @@
 name: Bump version and publish
 
+# This workflow creates a new version tag and publishes the package to PyPI
+# It runs only when manually triggered via the GitHub Actions interface
+# The workflow first creates a tag based on the repository's version information, then publishes to PyPI
+
 on:
   workflow_dispatch
 

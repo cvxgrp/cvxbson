@@ -7,6 +7,7 @@ RESET := \033[0m
 
 .PHONY: help verify install fmt test marimo clean
 
+
 ##@ Development Setup
 
 venv:
@@ -16,6 +17,7 @@ venv:
 
 install: venv ## Install all dependencies using uv
 	@printf "$(BLUE)Installing dependencies...$(RESET)\n"
+	@uv pip install --upgrade pip
 	@uv sync --dev --frozen
 
 ##@ Code Quality
@@ -38,6 +40,7 @@ test: install ## Run all tests
 clean: ## Clean generated files and directories
 	@printf "$(BLUE)Cleaning project...$(RESET)\n"
 	@git clean -d -X -f
+	@git branch -v | grep "\[gone\]" | cut -f 3 -d ' ' | xargs git branch -D 2>/dev/null || true
 
 ##@ Marimo & Jupyter
 
@@ -45,6 +48,7 @@ marimo: install ## Start a Marimo server
 	@printf "$(BLUE)Start Marimo server...$(RESET)\n"
 	@uv pip install marimo
 	@uv run marimo edit book/marimo
+
 
 ##@ Help
 
