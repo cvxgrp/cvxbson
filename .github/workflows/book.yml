@@ -4,8 +4,12 @@ name: "book"
 # It runs automatically on every push to the repository
 # The workflow includes multiple documentation generation jobs and combines them into a final book
 
+# Trigger the workflow on push events
+# This ensures the documentation is automatically updated whenever code changes are pushed to main
 on:
-- push
+  push:
+    branches:
+      - main
 
 jobs:
   # Generates interactive Marimo notebooks for documentation
