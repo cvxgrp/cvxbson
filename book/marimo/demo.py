@@ -3,25 +3,28 @@ import marimo
 __generated_with = "0.9.27"
 app = marimo.App()
 
+with app.setup:
+    import marimo as mo
+    import numpy as np
+
 
 @app.cell
-def __(mo):
+def __():
     mo.md(r"""# cvxbson""")
     return
 
 
 @app.cell
 def __():
-    import numpy as np
 
     from cvx.bson import read_bson, write_bson
     from cvx.json import read_json, write_json
 
-    return np, read_bson, read_json, write_bson, write_json
+    return read_bson, read_json, write_bson, write_json
 
 
 @app.cell
-def __(mo):
+def __():
     mo.md(r"""## Create a dictionary of numpy arrays""")
     return
 
@@ -33,13 +36,13 @@ def __(np):
 
 
 @app.cell
-def __(mo):
+def __():
     mo.md(r"""## json""")
     return
 
 
 @app.cell
-def __(data, np, read_json, write_json):
+def __(data, read_json, write_json):
     write_json("test.json", data)
     _recovered = dict(read_json("test.json"))
     assert np.allclose(data["A"], _recovered["A"])
@@ -48,25 +51,18 @@ def __(data, np, read_json, write_json):
 
 
 @app.cell
-def __(mo):
+def __():
     mo.md(r"""## bson""")
     return
 
 
 @app.cell
-def __(data, np, read_bson, write_bson):
+def __(data, read_bson, write_bson):
     write_bson("test.bson", data)
     _recovered = dict(read_bson("test.bson"))
     assert np.allclose(data["A"], _recovered["A"])
     assert np.allclose(data["B"], _recovered["B"])
     return
-
-
-@app.cell
-def __():
-    import marimo as mo
-
-    return (mo,)
 
 
 if __name__ == "__main__":
