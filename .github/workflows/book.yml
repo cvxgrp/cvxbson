@@ -16,7 +16,7 @@ jobs:
   marimo:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: jebel-quant/marimushka@v0.1.1
+      - uses: jebel-quant/marimushka@v0.1.5
         with:
           notebooks: 'book/marimo'
 
@@ -31,7 +31,7 @@ jobs:
       - uses: cvxgrp/.github/actions/coverage@v2.2.8
         with:
           source-folder: 'src/cvx'
-          tests-folder: 'src/tests'
+          tests-folder: 'tests'
 
   # Processes Jupyter notebooks for documentation
   jupyter:
