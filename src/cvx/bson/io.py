@@ -11,6 +11,8 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
+"""Encoding and decoding utilities for numpy arrays and dataframes in BSON format."""
+
 import json
 from io import BytesIO
 from typing import Any

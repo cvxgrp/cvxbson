@@ -11,6 +11,12 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
+"""JSON encoder for NumPy data types.
+
+This module provides a custom JSON encoder that can handle NumPy data types
+by converting them to standard Python types that can be serialized to JSON.
+"""
+
 import json
 
 import numpy as np
@@ -20,6 +26,15 @@ class NumpyEncoder(json.JSONEncoder):
     """Custom encoder for numpy data types."""
 
     def default(self, obj):
+        """Handle numpy types by converting them to Python standard types.
+
+        Args:
+            obj: The object to encode
+
+        Returns:
+            A JSON serializable version of the object
+        """
+        # Integer types
         if isinstance(
             obj,
             np.int_
