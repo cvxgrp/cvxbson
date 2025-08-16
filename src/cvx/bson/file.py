@@ -26,7 +26,7 @@ import bson
 from .io import decode, encode
 
 FILE = str | bytes | PathLike
-type MATRIX = npt.NDArray[Any] | pd.DataFrame
+MATRIX = npt.NDArray[Any] | pd.DataFrame
 MATRICES = dict[str, MATRIX]
 
 
