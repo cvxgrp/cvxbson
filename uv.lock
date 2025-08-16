@@ -163,7 +163,6 @@ dependencies = [
     { name = "pandas" },
     { name = "polars" },
     { name = "pyarrow" },
-    { name = "typing-extensions" },
 ]
 
 [package.optional-dependencies]
@@ -187,7 +186,6 @@ requires-dist = [
     { name = "pyarrow", specifier = ">=18.1.0" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3.3" },
     { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=6.0.0" },
-    { name = "typing-extensions", specifier = ">=4.12.2" },
 ]
 provides-extras = ["dev"]
 

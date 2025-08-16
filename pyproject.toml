@@ -10,8 +10,7 @@ dependencies = [
     "numpy>=2",
     "pandas>=2",
     "polars>=1.16.0",
-    "pyarrow>=18.1.0",
-    "typing-extensions>=4.12.2",
+    "pyarrow>=18.1.0"
 ]
 
 [project.urls]
