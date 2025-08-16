@@ -1,3 +1,9 @@
+"""Tests for BSON serialization and deserialization functionality.
+
+This module tests the core BSON file operations including reading, writing,
+and direct conversion between Python objects and BSON.
+"""
+
 from __future__ import annotations
 
 import numpy as np

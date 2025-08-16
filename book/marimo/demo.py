@@ -1,3 +1,5 @@
+"""Marimo notebook demonstrating cvxbson functionality for JSON and BSON serialization."""
+
 import marimo
 
 __generated_with = "0.9.27"
@@ -9,13 +11,15 @@ with app.setup:
 
 
 @app.cell
-def __():
+def title():
+    """Display the title of the notebook."""
     mo.md(r"""# cvxbson""")
     return
 
 
 @app.cell
-def __():
+def import_modules():
+    """Import necessary modules for the notebook."""
     from cvx.bson import read_bson, write_bson
     from cvx.json import read_json, write_json
 
@@ -23,25 +27,29 @@ def __():
 
 
 @app.cell
-def __():
+def create_data_header():
+    """Display the header for creating data section."""
     mo.md(r"""## Create a dictionary of numpy arrays""")
     return
 
 
 @app.cell
-def __(np):
+def create_data(np):
+    """Create sample data for demonstration."""
     data = {"A": np.random.rand(50, 50), "B": np.random.rand(50)}
     return (data,)
 
 
 @app.cell
-def __():
+def json_header():
+    """Display the header for JSON section."""
     mo.md(r"""## json""")
     return
 
 
 @app.cell
-def __(data, read_json, write_json):
+def test_json(data, read_json, write_json):
+    """Test JSON serialization and deserialization."""
     write_json("test.json", data)
     _recovered = dict(read_json("test.json"))
     assert np.allclose(data["A"], _recovered["A"])
@@ -50,13 +58,15 @@ def __(data, read_json, write_json):
 
 
 @app.cell
-def __():
+def bson_header():
+    """Display the header for BSON section."""
     mo.md(r"""## bson""")
     return
 
 
 @app.cell
-def __(data, read_bson, write_bson):
+def test_bson(data, read_bson, write_bson):
+    """Test BSON serialization and deserialization."""
     write_bson("test.bson", data)
     _recovered = dict(read_bson("test.bson"))
     assert np.allclose(data["A"], _recovered["A"])
