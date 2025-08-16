@@ -26,4 +26,4 @@ jobs:
 
       - uses: cvxgrp/.github/actions/test@v2.2.8
         with:
-          tests-folder: src/tests
+          tests-folder: tests
