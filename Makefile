@@ -1,56 +1,29 @@
 # Colors for pretty output
 BLUE := \033[36m
 BOLD := \033[1m
+GREEN := \033[32m
 RESET := \033[0m
 
 .DEFAULT_GOAL := help
 
-.PHONY: help verify install fmt test marimo clean
+.PHONY: build clean book check
 
+install: ## install
+	task build:install
 
-##@ Development Setup
+clean: ## clean
+	task cleanup:clean
 
-venv:
-	@printf "$(BLUE)Creating virtual environment...$(RESET)\n"
-	@curl -LsSf https://astral.sh/uv/install.sh | sh
-	@uv venv --python 3.12
+test: install ## run all tests
+	task docs:test
 
-install: venv ## Install all dependencies using uv
-	@printf "$(BLUE)Installing dependencies...$(RESET)\n"
-	@uv pip install --upgrade pip
-	@uv sync --dev --frozen
+book: test ## compile the companion book
+	task docs:docs
+	task docs:marimushka
+	task docs:book
 
-##@ Code Quality
-
-fmt: venv ## Run code formatting and linting
-	@printf "$(BLUE)Running formatters and linters...$(RESET)\n"
-	@uv pip install pre-commit
-	@uv run pre-commit install
-	@uv run pre-commit run --all-files
-
-##@ Testing
-
-test: install ## Run all tests
-	@printf "$(BLUE)Running tests...$(RESET)\n"
-	@uv pip install pytest
-	@uv run pytest src/tests
-
-##@ Cleanup
-
-clean: ## Clean generated files and directories
-	@printf "$(BLUE)Cleaning project...$(RESET)\n"
-	@git clean -d -X -f
-	@git branch -v | grep "\[gone\]" | cut -f 3 -d ' ' | xargs git branch -D 2>/dev/null || true
-
-##@ Marimo & Jupyter
-
-marimo: install ## Start a Marimo server
-	@printf "$(BLUE)Start Marimo server...$(RESET)\n"
-	@uv pip install marimo
-	@uv run marimo edit book/marimo
-
-
-##@ Help
+check: install ## check the pre-commit hooks, the linting and deptry
+	task quality:check
 
 help: ## Display this help message
 	@printf "$(BOLD)Usage:$(RESET)\n"

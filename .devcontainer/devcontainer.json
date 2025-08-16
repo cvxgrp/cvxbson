@@ -1,23 +1,19 @@
 {
-	"name": "Python 3",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
-	"onCreateCommand": ".devcontainer/startup.sh",
-	"customizations": {
-		"vscode": {
-			"settings": {
-				"python.testing.pytestEnabled": true,
-				"python.testing.unittestEnabled": false,
-				"python.testing.pytestArgs": [
-					"."
-				],
-				"python.pythonPath": ".venv/bin/python",
-				"python.defaultInterpreterPath": ".venv/bin/python",
-				"python.terminal.activateEnvInCurrentTerminal": true
-			},
-			"extensions": [
-				"ms-toolsai.jupyter"
-			]
-		}
-	}
+  "name": "Marimo Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13",
+  "hostRequirements": {
+    "cpus": 4
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && uv venv && ([ -f pyproject.toml ] && uv sync --all-extras || true) && uv pip install marimo",
+  "postStartCommand": "[ -f .venv/bin/activate ] && uv run marimo --yes edit --host=localhost --port=8080 --headless --no-token || echo '⚠️ Marimo failed to start'",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "marimo-ai.marimo-vscode"
+      ]
+    }
+  }
 }
