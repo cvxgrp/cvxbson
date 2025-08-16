@@ -31,7 +31,7 @@ jobs:
       - uses: cvxgrp/.github/actions/coverage@v2.2.8
         with:
           source-folder: 'src/cvx'
-          tests-folder: 'src/tests'
+          tests-folder: 'tests'
 
   # Processes Jupyter notebooks for documentation
   jupyter:
