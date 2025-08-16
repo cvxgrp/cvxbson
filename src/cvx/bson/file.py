@@ -11,41 +11,33 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
-"""
-Tools to support working with bson files and strings
-"""
+"""Tools to support working with bson files and strings."""
 
 from __future__ import annotations
 
 from os import PathLike
-from typing import Any, Dict, Union
+from typing import Any
 
 import numpy.typing as npt
 import pandas as pd
-
-# see https://github.com/microsoft/pylance-release/issues/2019
-from typing_extensions import TypeAlias
 
 import bson
 
 from .io import decode, encode
 
-FILE = Union[str, bytes, PathLike]
-MATRIX: TypeAlias = Union[npt.NDArray[Any], pd.DataFrame]
-MATRICES = Dict[str, MATRIX]
+FILE = str | bytes | PathLike
+type MATRIX = npt.NDArray[Any] | pd.DataFrame
+MATRICES = dict[str, MATRIX]
 
 
 def read_bson(file: FILE) -> MATRICES:
-    """
-    Read a bson file and prepare the bson_document needed
+    """Read a bson file and prepare the bson_document needed.
 
     Args:
-        file:
+        file: Path to the BSON file to read
 
     Returns:
         A dictionary of numpy arrays
-
-
     """
     with open(file, mode="rb") as openfile:
         # Reading from bson file
@@ -53,8 +45,7 @@ def read_bson(file: FILE) -> MATRICES:
 
 
 def write_bson(file: FILE, data: MATRICES) -> int:
-    """
-    Write dictionary into a bson file
+    """Write dictionary into a bson file.
 
     Args:
         file: file
@@ -65,8 +56,7 @@ def write_bson(file: FILE, data: MATRICES) -> int:
 
 
 def to_bson(data: MATRICES) -> bytes:
-    """
-    Convert a dictionary of numpy arrays into a bson string
+    """Convert a dictionary of numpy arrays into a bson string.
 
     Args:
         data: dictionary of numpy arrays
@@ -75,5 +65,5 @@ def to_bson(data: MATRICES) -> bytes:
 
 
 def from_bson(bson_str: bytes) -> MATRICES:
-    """Convert a bson string into a dictionary of numpy arrays"""
+    """Convert a bson string into a dictionary of numpy arrays."""
     return {name: decode(value) for name, value in bson.loads(bson_str).items()}

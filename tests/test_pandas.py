@@ -33,8 +33,7 @@ def assert_equal(obj1, obj2):
 
 
 def test_roundtrip(data):
-    """
-    Testing the roundtrip
+    """Testing the roundtrip.
 
     Args:
         data: Fixture exposing a dictionary of data

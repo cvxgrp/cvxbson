@@ -13,7 +13,7 @@
 #    limitations under the License.
 import json
 from io import BytesIO
-from typing import Any, Union
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -21,9 +21,8 @@ import polars as pl
 import pyarrow as pa
 
 
-def encode(data: Union[np.ndarray, pd.DataFrame, pl.DataFrame]) -> Any:
-    """
-    Encode a numpy array or a pandas DataFrame
+def encode(data: np.ndarray | pd.DataFrame | pl.DataFrame) -> Any:
+    """Encode a numpy array or a pandas DataFrame.
 
     Args:
         data: The numpy array or pandas DataFrame
@@ -57,9 +56,8 @@ def encode(data: Union[np.ndarray, pd.DataFrame, pl.DataFrame]) -> Any:
     # raise TypeError(f"Invalid Datatype {type(data)}")
 
 
-def decode(data: bytes) -> Union[np.ndarray, pd.DataFrame, pl.DataFrame]:
-    """
-    Decode the bytes back into numpy array or pandas DataFrame
+def decode(data: bytes) -> np.ndarray | pd.DataFrame | pl.DataFrame:
+    """Decode the bytes back into numpy array or pandas DataFrame.
 
     Args:
         data: bytes
