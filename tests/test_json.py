@@ -1,3 +1,9 @@
+"""Tests for JSON serialization and deserialization functionality.
+
+This module tests the core JSON file operations including reading and writing
+different data types including NumPy arrays and primitive types.
+"""
+
 import numpy as np
 import pytest
 

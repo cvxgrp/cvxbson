@@ -1,3 +1,9 @@
+"""Tests for pandas and polars DataFrame serialization with BSON.
+
+This module tests the serialization and deserialization of pandas and polars
+DataFrames using the BSON format.
+"""
+
 import numpy as np
 import pandas as pd
 import polars as pl
@@ -8,6 +14,15 @@ from cvx.bson.file import from_bson, to_bson
 
 @pytest.fixture()
 def data():
+    """Provide test data for serialization tests.
+
+    Returns:
+        A dictionary containing various data types to test serialization:
+        - pandas DataFrame
+        - numpy array
+        - pandas DataFrame with timestamp index
+        - polars DataFrame
+    """
     return {
         "frame": pd.DataFrame(data=np.random.rand(5, 2)),
         "numpy": np.random.rand(5, 2),
@@ -20,6 +35,15 @@ def data():
 
 
 def assert_equal(obj1, obj2):
+    """Assert that two objects are equal, handling different data types.
+
+    This function compares different types of objects (pandas DataFrames,
+    numpy arrays, polars DataFrames) using the appropriate equality check.
+
+    Args:
+        obj1: First object to compare
+        obj2: Second object to compare
+    """
     assert type(obj1) is type(obj2)
 
     if isinstance(obj1, pd.DataFrame):
@@ -44,6 +68,15 @@ def test_roundtrip(data):
 
 
 def test_file(data, tmp_path):
+    """Test serialization and deserialization using file I/O.
+
+    This test writes data to a BSON file, reads it back, and verifies
+    that the deserialized data matches the original data.
+
+    Args:
+        data: Test data fixture
+        tmp_path: Temporary path fixture
+    """
     with open(file=tmp_path / "xxx.bson", mode="wb") as bson_file:
         bson_file.write(to_bson(data))
 
