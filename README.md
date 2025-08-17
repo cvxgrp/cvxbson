@@ -31,17 +31,17 @@ and encouraged.
 ## 🚀 Demo
 
 ```python
-import numpy as np
+>>> import numpy as np
 
-from src.cvx.bson import read_bson, write_bson
+>>> from src.cvx.bson import read_bson, write_bson
 
-data = {"A": np.random.rand(50, 50), "B": np.random.rand(50)}
+>>> data = {"A": np.random.rand(50, 50), "B": np.random.rand(50)}
 
-write_bson("test.bson", data)
-recovered = read_bson("test.bson")
+>>> write_bson("test.bson", data)
+>>> recovered = read_bson("test.bson")
 
-assert np.allclose(data["A"], recovered["A"])
-assert np.allclose(data["B"], recovered["B"])
+>>> assert np.allclose(data["A"], recovered["A"])
+>>> assert np.allclose(data["B"], recovered["B"])
 ```
 
 We have also implemented the same functionality in for json files but would advise
@@ -56,7 +56,7 @@ You need to install [task](https://taskfile.dev).
 Starting with
 
 ```bash
-task cvxbson:install
+task build:install
 ```
 
 will install [uv](https://github.com/astral-sh/uv) and create
@@ -69,7 +69,7 @@ We install [marimo](https://marimo.io) on the fly within the aforementioned
 virtual environment. Executing
 
 ```bash
-task cvxbson:marimo
+task docs:marimo
 ```
 
 will install and start marimo.
