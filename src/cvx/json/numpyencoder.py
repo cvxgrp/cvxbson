@@ -52,11 +52,11 @@ class NumpyEncoder(json.JSONEncoder):
             return int(obj)
 
         # Float types
-        elif isinstance(obj, (np.float16, np.float32, np.float64)):
+        elif isinstance(obj, np.float16 | np.float32 | np.float64):
             return float(obj)
 
         # Complex types
-        elif isinstance(obj, (np.complex64, np.complex128)):
+        elif isinstance(obj, np.complex64 | np.complex128):
             return {"real": obj.real, "imag": obj.imag}
 
         # Array types
