@@ -56,7 +56,7 @@ class NumpyEncoder(json.JSONEncoder):
             return float(obj)
 
         # Complex types
-        elif isinstance(obj, np.complex64 | np.complex128):
+        elif isinstance(obj, (np.complex64, np.complex128)):
             return {"real": obj.real, "imag": obj.imag}
 
         # Array types
