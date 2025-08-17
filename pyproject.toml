@@ -10,8 +10,7 @@ dependencies = [
     "numpy>=2",
     "pandas>=2",
     "polars>=1.16.0",
-    "pyarrow>=18.1.0",
-    "typing-extensions>=4.12.2",
+    "pyarrow>=18.1.0"
 ]
 
 [project.urls]
@@ -21,9 +20,10 @@ repository = "https://github.com/cvxgrp/cvxbson"
 dev = [
     "pytest-cov>=6.0.0",
     "pytest>=8.3.3",
-    "pre-commit>=4.0.1",
-    "loguru>=0.7.0"
+    "pre-commit>=4.2.0",
+    "marimo~=0.14.17"
 ]
+
 
 [tool.ruff]
 line-length = 120

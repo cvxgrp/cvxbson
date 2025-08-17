@@ -1,3 +1,9 @@
+"""Tests for dataclass serialization and deserialization with BSON.
+
+This module tests the functionality of the Data base class for dataclasses,
+including serialization to BSON, deserialization from BSON, and data access patterns.
+"""
+
 from dataclasses import dataclass
 
 import numpy as np
@@ -9,6 +15,11 @@ from cvx.bson.dataclass import Data
 
 @dataclass(frozen=True)
 class Maffay(Data):
+    """Test dataclass for BSON serialization.
+
+    This class demonstrates a dataclass that can be serialized to and from BSON.
+    """
+
     x: pd.DataFrame
     y: pl.DataFrame
     z: np.array
@@ -16,16 +27,36 @@ class Maffay(Data):
 
 @dataclass(frozen=True)
 class DataAPI(Data):
+    """Test data API class for BSON serialization.
+
+    This class demonstrates a dataclass with custom methods that can be
+    serialized to and from BSON.
+    """
+
     # you need to explicitly declare the tables expected
     x: pd.DataFrame
     y: pl.DataFrame
     z: np.array
 
     def items(self):
+        """Get the field names and values of this dataclass instance.
+
+        Yields:
+            Pairs of (field_name, field_value)
+        """
         yield from self.__dict__.items()
 
 
 def assert_equal(obj1, obj2):
+    """Assert that two objects are equal, handling different data types.
+
+    This function compares different types of objects (pandas DataFrames,
+    numpy arrays, polars DataFrames) using the appropriate equality check.
+
+    Args:
+        obj1: First object to compare
+        obj2: Second object to compare
+    """
     assert type(obj1) is type(obj2)
 
     if isinstance(obj1, pd.DataFrame):
@@ -39,6 +70,14 @@ def assert_equal(obj1, obj2):
 
 
 def test_conversion(tmp_path):
+    """Test conversion of a dataclass to and from BSON.
+
+    This test creates a dataclass instance, serializes it to BSON,
+    and then deserializes it back.
+
+    Args:
+        tmp_path: Temporary path fixture
+    """
     matrix = np.random.rand(5, 2)
 
     x = pd.DataFrame(data=matrix)
@@ -52,6 +91,15 @@ def test_conversion(tmp_path):
 
 
 def test_reflection(tmp_path):
+    """Test reflection of data through a dataclass.
+
+    This test creates a dictionary of data, filters it based on the
+    dataclass fields, creates a dataclass instance, and then verifies
+    that the data is preserved.
+
+    Args:
+        tmp_path: Temporary path fixture
+    """
     matrix = np.random.rand(5, 2)
 
     x = pd.DataFrame(data=matrix)
