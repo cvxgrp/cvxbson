@@ -24,7 +24,7 @@ import numpy.typing as npt
 from .numpyencoder import NumpyEncoder
 
 FILE = str | bytes | PathLike
-type MATRIX = npt.NDArray[Any]
+MATRIX = npt.NDArray[Any]
 DATA = dict[str, Any]
 
 
