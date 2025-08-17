@@ -44,7 +44,7 @@ def read_bson(file: FILE) -> MATRICES:
         return from_bson(bson_str=openfile.read())
 
 
-def write_bson(file: FILE, data: MATRICES) -> int:
+def write_bson(file: FILE, data: MATRICES):
     """Write dictionary into a bson file.
 
     Args:
@@ -52,7 +52,7 @@ def write_bson(file: FILE, data: MATRICES) -> int:
         data: dictionary of numpy arrays
     """
     with open(file=file, mode="wb") as bson_file:
-        return bson_file.write(to_bson(data=data))
+        bson_file.write(to_bson(data=data))
 
 
 def to_bson(data: MATRICES) -> bytes:
