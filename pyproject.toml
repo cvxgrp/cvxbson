@@ -20,13 +20,10 @@ repository = "https://github.com/cvxgrp/cvxbson"
 dev = [
     "pytest-cov>=6.0.0",
     "pytest>=8.3.3",
-    "pre-commit>=4.0.1",
- dev-dependencies = [
-     "pytest>=8.3.3",
-     "pre-commit>=4.0.1",
-     "marimo~=0.14.17"
- ]
+    "pre-commit>=4.2.0",
+    "marimo~=0.14.17"
 ]
+
 
 [tool.ruff]
 line-length = 120
