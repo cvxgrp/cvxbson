@@ -29,7 +29,6 @@ FILE = str | bytes | PathLike
 MATRIX = npt.NDArray[Any] | pd.DataFrame
 MATRICES = dict[str, MATRIX]
 
-
 def read_bson(file: FILE) -> MATRICES:
     """Read a bson file and prepare the bson_document needed.
 
