@@ -35,7 +35,6 @@ class Result:
         return stdout
 
     @property
-    @property
     def stderr(self):
         """Get the standard error of the process.
 
