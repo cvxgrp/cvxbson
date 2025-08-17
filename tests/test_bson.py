@@ -1,3 +1,9 @@
+"""Tests for BSON serialization and deserialization functionality.
+
+This module tests the core BSON file operations including reading, writing,
+and direct conversion between Python objects and BSON.
+"""
+
 from __future__ import annotations
 
 import numpy as np
@@ -8,8 +14,7 @@ from cvx.bson.file import from_bson, read_bson, to_bson, write_bson
 
 @pytest.mark.parametrize("shape", [(50, 50), (1000, 50), (50, 1000), (1000, 1000), (5000, 2000)])
 def test_write(tmp_path, shape):
-    """
-    Test that a numpy array is written and read correctly
+    """Test that a numpy array is written and read correctly.
 
     Args:
         tmp_path: temporary path fixture
@@ -25,8 +30,7 @@ def test_write(tmp_path, shape):
 
 
 def test_vector(tmp_path):
-    """
-    Test that a vector is written and read correctly
+    """Test that a vector is written and read correctly.
 
     Args:
         tmp_path: temporary path fixture
@@ -42,8 +46,7 @@ def test_vector(tmp_path):
 
 @pytest.mark.parametrize("shape", [(50, 50), (1000, 50), (50, 1000), (1000, 1000), (5000, 2000)])
 def test_without_file(shape):
-    """
-    Test that a matrix is written and read correctly
+    """Test that a matrix is written and read correctly.
 
     Args:
         shape: shape of the matrix
