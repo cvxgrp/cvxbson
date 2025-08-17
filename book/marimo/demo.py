@@ -11,7 +11,7 @@ with app.setup:
 
     from cvx.bson import read_bson, write_bson
     from cvx.json import read_json, write_json
-    
+
 
 @app.cell
 def title():
