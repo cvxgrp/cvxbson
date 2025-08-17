@@ -9,21 +9,15 @@ with app.setup:
     import marimo as mo
     import numpy as np
 
+    from cvx.bson import read_bson, write_bson
+    from cvx.json import read_json, write_json
+
 
 @app.cell
 def title():
     """Display the title of the notebook."""
     mo.md(r"""# cvxbson""")
     return
-
-
-@app.cell
-def import_modules():
-    """Import necessary modules for the notebook."""
-    from cvx.bson import read_bson, write_bson
-    from cvx.json import read_json, write_json
-
-    return read_bson, read_json, write_bson, write_json
 
 
 @app.cell
@@ -34,7 +28,7 @@ def create_data_header():
 
 
 @app.cell
-def create_data(np):
+def create_data():
     """Create sample data for demonstration."""
     data = {"A": np.random.rand(50, 50), "B": np.random.rand(50)}
     return (data,)
@@ -48,7 +42,7 @@ def json_header():
 
 
 @app.cell
-def test_json(data, read_json, write_json):
+def test_json(data):
     """Test JSON serialization and deserialization."""
     write_json("test.json", data)
     _recovered = dict(read_json("test.json"))
@@ -65,7 +59,7 @@ def bson_header():
 
 
 @app.cell
-def test_bson(data, read_bson, write_bson):
+def test_bson(data):
     """Test BSON serialization and deserialization."""
     write_bson("test.bson", data)
     _recovered = dict(read_bson("test.bson"))
